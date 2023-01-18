@@ -12,6 +12,7 @@ struct logo: View {
         Image("logo")
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .frame(width: 320, height: 480)
             .padding()
     }
 }

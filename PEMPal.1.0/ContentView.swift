@@ -9,17 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
+        ZStack(alignment: .top) {
             logo()
-                .offset(y: -10)
+                .offset(y: -300)
                 .ignoresSafeArea(edges: .top)
             
             VStack(alignment: .leading) {
-                HStack {
-                    Text("Vital based tracking of post-exertional malaise")
-                        .font(.title2)
-                        .multilineTextAlignment(.leading)
+                Text("Vital based tracking of post-exertional malaise")
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .padding()
+
+                Text("Let's start with some basic information about you:")
+                    .font(.title3)
+                    .multilineTextAlignment(.leading)
+                
+                Button {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+
+                } label: {
+                    Text("Button")
+                        .fontWeight(.semibold)
+                        .padding(.horizontal, 10.0)
+                        .padding(.vertical, 6.0)
+                        .foregroundColor(.white)
+                        .background(.blue)
+                        .cornerRadius(8)
                 }
+                .buttonStyle(.plain)
             }
         }
     }
