@@ -13,8 +13,9 @@ struct ContentView: View {
     @State var userWeight = ""
     @State var userHeight = ""
     @State var userGender = ""
-    @State var userCOVIDLength = ""
-    @State var userSymptLength = ""
+    @State var userCOVIDLength = 0
+    @State var userSymptomLength = 0
+    @State private var isEditing = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -35,20 +36,35 @@ struct ContentView: View {
                     .padding(.bottom)
             
                 Form{
-                    Section{
-                        TextField("Full name", text: $userName)
-                        TextField("Age", text: $userAge)
-                    }
-                    
-                    Section(header: Text("Personal Information")){
-                        TextField("Weight (kg)", text: $userWeight)
-                            .keyboardType(.numberPad)
-                        TextField("Height (cm)", text: $userHeight)
-                        TextField("Gender (M/F/Other)", text: $userGender)
-                    }
-                    
-                    Section(header: Text("COVID Information")){
+                    ScrollView{
+                        Section{
+                            TextField("Full name", text: $userName)
+                            TextField("Age", text: $userAge)
+                        }
                         
+                        Section(header: Text("Personal Information")){
+                            TextField("Weight (kg)", text: $userWeight)
+                                .keyboardType(.numberPad)
+                            TextField("Height (cm)", text: $userHeight)
+                            TextField("Gender (M/F/Other)", text: $userGender)
+                        }
+                        
+                        Section(header: Text("COVID Information")){
+                           
+                            Menu{
+                                Button(action: {}, label: {
+                                    Text("< 1 week")
+                                })
+                                Button(action: {}, label: {
+                                    Text("1-2 weeks")
+                                })
+                                Button(action: {}, label: {
+                                    Text("> 2 weeks")
+                                })
+                            } label: {
+                            title: do {Text("Length of COVID Infection")}
+                            }
+                        }
                     }
                 }
                 
