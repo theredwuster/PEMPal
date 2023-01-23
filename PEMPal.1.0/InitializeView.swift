@@ -71,7 +71,7 @@ struct InitializeView: View {
                                     Text("> 2 weeks")
                                 })
                             } label: {
-                            title: do {Text("COVID+: \(COVIDpos)")}
+                            title: do {Text("COVID Infection: \(COVIDpos)")}
                             }
                             .padding(.bottom, 3)
                             
