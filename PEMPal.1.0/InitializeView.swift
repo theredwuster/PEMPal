@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  InitializeView.swift
 //  PEMPal.1.0
 //
 //  Created by Tim Wu on 1/11/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct InitializeView: View {
     @State var userName = ""
     @State var userAge = ""
     @State var userWeight = ""
@@ -139,9 +139,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct InitializeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        InitializeView()
             
     }
 }
