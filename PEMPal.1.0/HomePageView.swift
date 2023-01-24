@@ -9,13 +9,14 @@ import SwiftUI
 
 struct HomePageView: View {
     var body: some View {
-        VStack{
+        ScrollView{
             welcomeText()
             lastDay()
+            PEMButton()
             
             Text("Today")
-                .font(.system(size: 15, weight: .semibold, design: .rounded))
-                .padding(.trailing, 320)
+                .font(.system(size: 24, weight: .semibold, design: .rounded))
+                .padding(.trailing, 300)
             
             PEMInfo(PEMData: PEMData)
                 .tag(0)
@@ -44,7 +45,7 @@ struct welcomeText: View {
                 .font(.system(size: 42, weight: .bold, design: .rounded))
 
         }
-        .padding(.top, 25)
+        .padding(.top, 50)
         .padding(.trailing, 200)
     }
 }
@@ -69,7 +70,24 @@ struct lastDay: View{
         .clipShape(Rectangle())
         .frame(width: 350, height: 100)
         .cornerRadius(20)
-        .padding()
+        .padding(2)
+    }
+}
+
+struct PEMButton: View{
+    var body: some View{
+        Button{
+            
+        } label: {
+            Text ("Report PEM")
+                .frame(width: 300, height: 50, alignment: .center)
+                .fontWeight(.semibold)
+                .padding(.horizontal, 10.0)
+                .padding(.vertical, 2.0)
+                .foregroundColor(.white)
+                .background(.blue)
+                .cornerRadius(8)
+        }
     }
 }
 
@@ -126,7 +144,7 @@ var PEMData = [
 struct addWidget: View{
     var body: some View{
         HStack (spacing: 5){
-            Text("+ Add Widgets")
+            Text("+ Add Vitals")
                 .font(.system(size: 20, weight: .semibold, design: .rounded))
                 .foregroundColor(.black)
                 .layoutPriority(1)
