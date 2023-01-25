@@ -10,6 +10,7 @@ import SwiftUI
 struct HomePageView: View {
     var body: some View {
         ScrollView{
+ian-hall1-patch-2
             HStack{
                 Spacer()
                 Image("logo")
@@ -18,6 +19,7 @@ struct HomePageView: View {
                     .frame(width: 100, alignment: .top).padding(.trailing, 20)
    
             }
+            
             welcomeText()
             lastDay()
             PEMButton()
@@ -25,6 +27,7 @@ struct HomePageView: View {
             Text("Today")
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                 .padding(.trailing, 300)
+
     
             PEMInfo(PEMData: PEMData)
                 .tag(0)

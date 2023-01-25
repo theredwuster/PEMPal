@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81DF3E19296F69D000F7CAFE /* PEMPal_1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */; };
-		81DF3E1B296F69D000F7CAFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E1A296F69D000F7CAFE /* ContentView.swift */; };
+		81DF3E1B296F69D000F7CAFE /* InitializeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E1A296F69D000F7CAFE /* InitializeView.swift */; };
 		81DF3E1D296F69D100F7CAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DF3E1C296F69D100F7CAFE /* Assets.xcassets */; };
 		81DF3E20296F69D100F7CAFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DF3E1F296F69D100F7CAFE /* Preview Assets.xcassets */; };
 		81DF3E2A296F69D100F7CAFE /* PEMPal_1_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E29296F69D100F7CAFE /* PEMPal_1_0Tests.swift */; };
@@ -23,6 +23,7 @@
 		81DF3E5C296F69D200F7CAFE /* PEMPal_1_0_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E5B296F69D200F7CAFE /* PEMPal_1_0_Watch_AppUITests.swift */; };
 		81DF3E5E296F69D200F7CAFE /* PEMPal_1_0_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E5D296F69D200F7CAFE /* PEMPal_1_0_Watch_AppUITestsLaunchTests.swift */; };
 		81DF3E7B296F78FA00F7CAFE /* logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E7A296F78FA00F7CAFE /* logo.swift */; };
+		81DF3EB52978C55900F7CAFE /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3EB42978C55900F7CAFE /* HomePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +81,7 @@
 /* Begin PBXFileReference section */
 		81DF3E15296F69D000F7CAFE /* PEMPal.1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMPal.1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEMPal_1_0App.swift; sourceTree = "<group>"; };
-		81DF3E1A296F69D000F7CAFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		81DF3E1A296F69D000F7CAFE /* InitializeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		81DF3E1C296F69D100F7CAFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81DF3E1F296F69D100F7CAFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		81DF3E25296F69D100F7CAFE /* PEMPal.1.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PEMPal.1.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +100,7 @@
 		81DF3E5B296F69D200F7CAFE /* PEMPal_1_0_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEMPal_1_0_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		81DF3E5D296F69D200F7CAFE /* PEMPal_1_0_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEMPal_1_0_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		81DF3E7A296F78FA00F7CAFE /* logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logo.swift; sourceTree = "<group>"; };
+		81DF3EB42978C55900F7CAFE /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */,
-				81DF3E1A296F69D000F7CAFE /* ContentView.swift */,
+				81DF3E1A296F69D000F7CAFE /* InitializeView.swift */,
+				81DF3EB42978C55900F7CAFE /* HomePageView.swift */,
 				81DF3E7A296F78FA00F7CAFE /* logo.swift */,
 				81DF3E1C296F69D100F7CAFE /* Assets.xcassets */,
 				81DF3E1E296F69D100F7CAFE /* Preview Content */,
@@ -469,7 +472,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81DF3E7B296F78FA00F7CAFE /* logo.swift in Sources */,
-				81DF3E1B296F69D000F7CAFE /* ContentView.swift in Sources */,
+				81DF3E1B296F69D000F7CAFE /* InitializeView.swift in Sources */,
+				81DF3EB52978C55900F7CAFE /* HomePageView.swift in Sources */,
 				81DF3E19296F69D000F7CAFE /* PEMPal_1_0App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
