@@ -10,16 +10,6 @@ import SwiftUI
 struct HomePageView: View {
     var body: some View {
         ScrollView{
-ian-hall1-patch-2
-            HStack{
-                Spacer()
-                Image("logo")
-                    .resizable(capInsets: EdgeInsets())
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, alignment: .top).padding(.trailing, 20)
-   
-            }
-            
             welcomeText()
             lastDay()
             PEMButton()
@@ -27,15 +17,13 @@ ian-hall1-patch-2
             Text("Today")
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                 .padding(.trailing, 300)
-
-    
+            
             PEMInfo(PEMData: PEMData)
                 .tag(0)
                 .overlay(addWidget())
-        
             Spacer()
             
-            //tabBar()
+            tabBar()
             
         }
     }
