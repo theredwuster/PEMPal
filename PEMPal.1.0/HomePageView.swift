@@ -10,7 +10,6 @@ import SwiftUI
 struct HomePageView: View {
     var body: some View {
         ScrollView{
-ian-hall1-patch-2
             HStack{
                 Spacer()
                 Image("logo")
