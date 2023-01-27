@@ -8,25 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            //Image(systemName: "globe")
-            //    .imageScale(.large)
-            //  .foregroundColor(.accentColor)
-            Text("PEM PAL")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color.blue)
-            Text("Vital based tracking of post-exertional malaise")
-                .font(.subheadline)
-                .multilineTextAlignment(.leading)
-        }
-        .padding()
+        Image("logo")
+            .resizable()
+            .frame(width: 100, height: 20)
+        
+        PEMstatus()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct PEMstatus: View{
+    @State var PEMrisk = "Low Risk"
+    
+    var body: some View{
+        ScrollView{
+            Text("Status:")
+                .font(.system(size: 30, weight: .semibold, design: .rounded))
+                .foregroundColor(.red)
+            Text(PEMrisk)
+                .font(.system(size: 30, weight: .semibold, design: .rounded))
+                .foregroundColor(.red)
+            
+            Button{
+                self.PEMrisk = "High Risk"
+            } label: {
+                Text ("Report PEM")
+                    .frame(width: 150, height:30, alignment: .center)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 10.0)
+                    .padding(.vertical, 1.0)
+                    .foregroundColor(.white)
+                    .background(.blue)
+                    .cornerRadius(50)
+            }
+            .buttonStyle(BorderedButtonStyle(tint: Color.blue.opacity(255)))
+        }
     }
 }
