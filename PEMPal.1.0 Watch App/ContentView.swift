@@ -32,6 +32,7 @@ struct PEMstatus: View{
             Text("Status:")
                 .font(.system(size: 30, weight: .semibold, design: .rounded))
                 .foregroundColor(.red)
+                .padding(.top)
             Text(PEMrisk)
                 .font(.system(size: 30, weight: .semibold, design: .rounded))
                 .foregroundColor(.red)
