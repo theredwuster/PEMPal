@@ -19,10 +19,10 @@ struct tabithas: View {
             Image(systemName: "questionmark.circle")
                 .font(.largeTitle)
         }
-        UpdateProfile().tabItem(){
-            Image(systemName: "mail")
-                .font(.largeTitle)
-        }
+        //UpdateProfile().tabItem(){
+        //    Image(systemName: "mail")
+        //        .font(.largeTitle)
+        //}
         }
     }
 }
