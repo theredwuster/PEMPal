@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		812552D82985103600C5D98F /* HeartRateChart1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552D72985103600C5D98F /* HeartRateChart1.swift */; };
+		812552DA2985105C00C5D98F /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552D92985105C00C5D98F /* HelpPage.swift */; };
+		812552DC2985107600C5D98F /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552DB2985107600C5D98F /* TabView.swift */; };
 		81DF3E19296F69D000F7CAFE /* PEMPal_1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */; };
 		81DF3E1B296F69D000F7CAFE /* InitializeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E1A296F69D000F7CAFE /* InitializeView.swift */; };
 		81DF3E1D296F69D100F7CAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DF3E1C296F69D100F7CAFE /* Assets.xcassets */; };
@@ -79,6 +82,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		812552D72985103600C5D98F /* HeartRateChart1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateChart1.swift; sourceTree = "<group>"; };
+		812552D92985105C00C5D98F /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
+		812552DB2985107600C5D98F /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		81DF3E15296F69D000F7CAFE /* PEMPal.1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMPal.1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEMPal_1_0App.swift; sourceTree = "<group>"; };
 		81DF3E1A296F69D000F7CAFE /* InitializeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -180,7 +186,10 @@
 			children = (
 				81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */,
 				81DF3E1A296F69D000F7CAFE /* InitializeView.swift */,
+				812552D92985105C00C5D98F /* HelpPage.swift */,
+				812552D72985103600C5D98F /* HeartRateChart1.swift */,
 				81DF3EB42978C55900F7CAFE /* HomePageView.swift */,
+				812552DB2985107600C5D98F /* TabView.swift */,
 				81DF3E7A296F78FA00F7CAFE /* logo.swift */,
 				81DF3E1C296F69D100F7CAFE /* Assets.xcassets */,
 				81DF3E1E296F69D100F7CAFE /* Preview Content */,
@@ -475,6 +484,9 @@
 				81DF3E1B296F69D000F7CAFE /* InitializeView.swift in Sources */,
 				81DF3EB52978C55900F7CAFE /* HomePageView.swift in Sources */,
 				81DF3E19296F69D000F7CAFE /* PEMPal_1_0App.swift in Sources */,
+				812552DC2985107600C5D98F /* TabView.swift in Sources */,
+				812552D82985103600C5D98F /* HeartRateChart1.swift in Sources */,
+				812552DA2985105C00C5D98F /* HelpPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
