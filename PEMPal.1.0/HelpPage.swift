@@ -56,7 +56,7 @@ struct Help: View {
                 }
 
             }
-            HStack{Text("A Guide to Using Pem Pal").font(.title2)
+            HStack{Text("PEM Pal Guide").font(.title2)
                     .multilineTextAlignment(.center).padding(.trailing, 20.0).bold()
                 Button(action:{} ){
                     NavigationLink(destination: logo()){
