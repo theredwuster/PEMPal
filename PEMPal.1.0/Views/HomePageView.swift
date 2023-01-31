@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import HealthKit
+
 
 struct HomePageView: View {
+    
     var body: some View {
         ScrollView{
             HStack{
@@ -39,6 +42,7 @@ struct HomePageView: View {
         }
     }
 }
+
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
@@ -145,7 +149,7 @@ struct PEM : Identifiable{
 }
 
 var PEMData = [
-    PEM(id: 0, title: "Heart Rate", image: "hr", data: "110 bpm", suggest: "70-130\nhealthy"),
+    PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(heartRateData) bpm", suggest: "70-130\nhealthy"),
     PEM(id: 1, title: "Respiratory Rate", image: "rr", data: "50 /min", suggest: "40 /min\nhealthy"),
     PEM(id: 2, title: "Blood Pressure", image: "bp", data: "110/70 mmHg", suggest: "120/50 mmHg\nhealthy")
     
@@ -206,4 +210,6 @@ struct tabBar: View{
         .padding()
     }
 }
+
+// TEST
 

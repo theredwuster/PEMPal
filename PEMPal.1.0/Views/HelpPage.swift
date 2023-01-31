@@ -57,7 +57,7 @@ struct Help: View {
 
             }
             HStack{Text("PEM Pal Guide").font(.title2)
-                    .multilineTextAlignment(.center).padding(.trailing, 20.0).bold()
+                    .multilineTextAlignment(.leading).padding(.trailing, 20.0).bold()
                 Button(action:{} ){
                     NavigationLink(destination: logo()){
                         Image(systemName: "arrow.right")

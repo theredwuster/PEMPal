@@ -7,14 +7,11 @@
 
 import Foundation
 import SwiftUI
-
 import HealthKit
-
-//test merger
 
 // Create an instance of HKHealthStore
 let healthStore = HKHealthStore()
-var heartRateData: [Double] = []
+var heartRateData: Double = 0
 
 func fetchHeartRateData() {
     // Define the heart rate type and anchor date
