@@ -15,6 +15,7 @@
 		812552DC2985107600C5D98F /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552DB2985107600C5D98F /* TabView.swift */; };
 		812552E52985FDCA00C5D98F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812552E42985FDCA00C5D98F /* HealthKit.framework */; };
 		812552E72986414900C5D98F /* HR-observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552E62986414900C5D98F /* HR-observer.swift */; };
+		812552ED298A8F1A00C5D98F /* HRtestview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552EC298A8F1A00C5D98F /* HRtestview.swift */; };
 		81DF3E19296F69D000F7CAFE /* PEMPal_1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */; };
 		81DF3E1B296F69D000F7CAFE /* InitializeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E1A296F69D000F7CAFE /* InitializeView.swift */; };
 		81DF3E1D296F69D100F7CAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DF3E1C296F69D100F7CAFE /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		812552E12985FB8200C5D98F /* PEMPal.1.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PEMPal.1.0.entitlements; sourceTree = "<group>"; };
 		812552E42985FDCA00C5D98F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		812552E62986414900C5D98F /* HR-observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HR-observer.swift"; sourceTree = "<group>"; };
+		812552EC298A8F1A00C5D98F /* HRtestview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRtestview.swift; sourceTree = "<group>"; };
 		81DF3E15296F69D000F7CAFE /* PEMPal.1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMPal.1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEMPal_1_0App.swift; sourceTree = "<group>"; };
 		81DF3E1A296F69D000F7CAFE /* InitializeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -184,6 +186,7 @@
 				812552D92985105C00C5D98F /* HelpPage.swift */,
 				81DF3EB42978C55900F7CAFE /* HomePageView.swift */,
 				812552DB2985107600C5D98F /* TabView.swift */,
+				812552EC298A8F1A00C5D98F /* HRtestview.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				81DF3EB52978C55900F7CAFE /* HomePageView.swift in Sources */,
 				6BBEBA272985E8B500D51ACC /* Update Profile page.swift in Sources */,
 				81DF3E19296F69D000F7CAFE /* PEMPal_1_0App.swift in Sources */,
+				812552ED298A8F1A00C5D98F /* HRtestview.swift in Sources */,
 				6BBEBA252985E80200D51ACC /* HR-input.swift in Sources */,
 				812552E72986414900C5D98F /* HR-observer.swift in Sources */,
 				6BBEBA232985E76600D51ACC /* HRGraph.swift in Sources */,
@@ -806,6 +810,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = PEMPal.1.0;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to your health data to track heart rate.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs access to your health data to track heart rate.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -840,6 +846,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = PEMPal.1.0;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to your health data to track heart rate.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs access to your health data to track heart rate.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
