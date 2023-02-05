@@ -27,6 +27,26 @@ class TemplateAppDelegate: CardinalKitAppDelegate {
                         HKQuantityType(.stepCount),
                         deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
                     )
+                    CollectSample(
+                        HKQuantityType(.heartRate),
+                        deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
+                    )
+                    CollectSample(
+                        HKQuantityType(.appleExerciseTime),
+                        deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
+                    )
+                    CollectSample(
+                        HKQuantityType(.respiratoryRate),
+                        deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
+                    )
+                    CollectSample(
+                        HKQuantityType(.bloodPressureSystolic),
+                        deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
+                    )
+                    CollectSample(
+                        HKQuantityType(.bloodPressureDiastolic),
+                        deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
+                    )
                 } adapter: {
                     HealthKitToFHIRAdapter()
                 }

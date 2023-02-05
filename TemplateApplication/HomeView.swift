@@ -16,7 +16,7 @@ import TemplateSharedContext
 struct HomeView: View {
     enum Tabs: String {
         case schedule
-        case contact
+        case homepage
         case mockUpload
     }
     
@@ -32,9 +32,9 @@ struct HomeView: View {
                     Label("SCHEDULE_TAB_TITLE", systemImage: "list.clipboard")
                 }
             Contacts()
-                .tag(Tabs.contact)
+                .tag(Tabs.homepage)
                 .tabItem {
-                    Label("CONTACTS_TAB_TITLE", systemImage: "person.fill")
+                    Label("HOME_TAB_TITLE", systemImage: "person.fill")
                 }
             MockUploadList()
                 .tag(Tabs.mockUpload)
