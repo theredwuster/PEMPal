@@ -53,7 +53,7 @@ public struct Contacts: View {
     //
     
     public var body: some View {
-        ScrollView{
+        VStack{
             HStack{
                 Spacer()
                 Image("logo")
@@ -66,11 +66,6 @@ public struct Contacts: View {
             welcomeText()
             lastDay()
             PEMButton()
-            
-            Text("Today")
-                .font(.system(size: 24, weight: .semibold, design: .rounded))
-                .padding(.trailing, 300)
-
     
             PEMInfo(PEMData: PEMData)
                 .tag(0)
@@ -101,7 +96,6 @@ struct welcomeText: View {
                 .font(.system(size: 42, weight: .bold, design: .rounded))
             Text("User.")
                 .font(.system(size: 42, weight: .bold, design: .rounded))
-
         }
         .padding(.top, 50)
         .padding(.trailing, 200)

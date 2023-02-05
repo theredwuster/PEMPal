@@ -7,7 +7,7 @@
 //
 
 // MARK: - Schedule
-"SCHEDULE_LIST_TITLE" = "Schedule";
-"TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_TITLE" = "Social Support Questionnaire";
-"TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_DESCRIPTION" = "Please fill out the Social Support Questionnaire every day.";
+"SCHEDULE_LIST_TITLE" = "Patient Information";
+"TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_TITLE" = "Patient profile";
+"TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_DESCRIPTION" = "Please fill out the patient profile on launch, and update as needed.";
 "TASK_CONTEXT_ACTION_QUESTIONNAIRE" = "Start Questionnaire";
