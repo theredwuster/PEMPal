@@ -11,7 +11,7 @@ import SwiftUI
 struct PEMPal_1_0App: App {
     var body: some Scene {
         WindowGroup {
-            InitializeView()
+            HRtestview()
         }
     }
 }

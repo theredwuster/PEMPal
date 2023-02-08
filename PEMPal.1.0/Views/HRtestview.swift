@@ -1,14 +1,14 @@
 //
-//  ContentView.swift
-//  PEMPal.1.0 Watch App
+//  HRtestview.swift
+//  PEMPal.1.0
 //
-//  Created by Tim Wu on 1/11/23.
+//  Created by Tim Wu on 2/1/23.
 //
 
 import SwiftUI
 import HealthKit
 
-struct ContentView: View {
+struct HRtestview: View {
     private var healthStore = HKHealthStore()
     let heartRateQuantity = HKUnit(from: "count/min")
     
@@ -29,7 +29,6 @@ struct ContentView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.red)
             }
-            PEMstatus()
         }
         .onAppear(perform: start)
     }
@@ -83,34 +82,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HRtestview_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-    }
-}
-
-struct PEMstatus: View{
-    @State var PEMrisk = "Low Risk"
-    
-    var body: some View{
-        ScrollView{
-            Text(PEMrisk)
-                .font(.system(size: 25, weight: .semibold, design: .rounded))
-                .foregroundColor(.red)
-            
-            Button{
-                self.PEMrisk = "High Risk"
-            } label: {
-                Text ("Report PEM")
-                    .frame(width: 150, height:30, alignment: .center)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal, 10.0)
-                    .padding(.vertical, 1.0)
-                    .foregroundColor(.white)
-                    .background(.blue)
-                    .cornerRadius(50)
-            }
-            .buttonStyle(BorderedButtonStyle(tint: Color.blue.opacity(255)))
-        }
+        HRtestview()
     }
 }
