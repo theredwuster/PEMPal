@@ -12,7 +12,13 @@ struct HRtestview: View {
     private var healthStore = HKHealthStore()
     let heartRateQuantity = HKUnit(from: "count/min")
     
+    let store = HKHealthStore()
+        
+    var updateView: (() -> Void)?
+    
     @State private var value = 0
+    
+    //var viewModel: vitalsViewModel
     
     var body: some View {
         ScrollView{
@@ -34,8 +40,30 @@ struct HRtestview: View {
     }
 
     func start() {
+        
         authorizeHealthKit()
         startHeartRateQuery(quantityTypeIdentifier: .heartRate)
+        //Want AnchoredObjectQuery
+        
+        let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { _, samples, error in
+            
+            guard let lastSample = samples?.last as? HKQuantitySample else { return }
+            let hrs = Int(lastSample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute())))
+            DispatchQueue.main.async {
+                value = hrs
+            }
+        }
+        
+//        let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { query, samples, error in
+//
+//            guard
+//                let lastHRSample = samples?.last as HKQuantitySample else { return }
+//
+//
+//        }
+        
+        store.execute(sampleQuery)
+        
     }
     
     func authorizeHealthKit() {
