@@ -16,6 +16,8 @@
 		812552E52985FDCA00C5D98F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812552E42985FDCA00C5D98F /* HealthKit.framework */; };
 		812552E72986414900C5D98F /* HR-observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552E62986414900C5D98F /* HR-observer.swift */; };
 		812552ED298A8F1A00C5D98F /* HRtestview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552EC298A8F1A00C5D98F /* HRtestview.swift */; };
+		812552EF29933B8B00C5D98F /* HKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552EE29933B8B00C5D98F /* HKManager.swift */; };
+		812552F12993489100C5D98F /* VitalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812552F02993489100C5D98F /* VitalsViewModel.swift */; };
 		81DF3E19296F69D000F7CAFE /* PEMPal_1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */; };
 		81DF3E1B296F69D000F7CAFE /* InitializeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3E1A296F69D000F7CAFE /* InitializeView.swift */; };
 		81DF3E1D296F69D100F7CAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DF3E1C296F69D100F7CAFE /* Assets.xcassets */; };
@@ -98,6 +100,8 @@
 		812552E42985FDCA00C5D98F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		812552E62986414900C5D98F /* HR-observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HR-observer.swift"; sourceTree = "<group>"; };
 		812552EC298A8F1A00C5D98F /* HRtestview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRtestview.swift; sourceTree = "<group>"; };
+		812552EE29933B8B00C5D98F /* HKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKManager.swift; sourceTree = "<group>"; };
+		812552F02993489100C5D98F /* VitalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsViewModel.swift; sourceTree = "<group>"; };
 		81DF3E15296F69D000F7CAFE /* PEMPal.1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMPal.1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81DF3E18296F69D000F7CAFE /* PEMPal_1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEMPal_1_0App.swift; sourceTree = "<group>"; };
 		81DF3E1A296F69D000F7CAFE /* InitializeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -187,6 +191,8 @@
 				81DF3EB42978C55900F7CAFE /* HomePageView.swift */,
 				812552DB2985107600C5D98F /* TabView.swift */,
 				812552EC298A8F1A00C5D98F /* HRtestview.swift */,
+				812552EE29933B8B00C5D98F /* HKManager.swift */,
+				812552F02993489100C5D98F /* VitalsViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -541,10 +547,12 @@
 				812552ED298A8F1A00C5D98F /* HRtestview.swift in Sources */,
 				6BBEBA252985E80200D51ACC /* HR-input.swift in Sources */,
 				812552E72986414900C5D98F /* HR-observer.swift in Sources */,
+				812552EF29933B8B00C5D98F /* HKManager.swift in Sources */,
 				6BBEBA232985E76600D51ACC /* HRGraph.swift in Sources */,
 				812552DC2985107600C5D98F /* TabView.swift in Sources */,
 				812552D82985103600C5D98F /* HeartRateChart1.swift in Sources */,
 				812552DA2985105C00C5D98F /* HelpPage.swift in Sources */,
+				812552F12993489100C5D98F /* VitalsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
