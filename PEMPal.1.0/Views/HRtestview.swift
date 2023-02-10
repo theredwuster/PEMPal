@@ -16,7 +16,7 @@ struct HRtestview: View {
         
     var updateView: (() -> Void)?
     
-    @State private var value = 0
+    @StateObject var globalModel = GlobalModel()
     
     //var viewModel: vitalsViewModel
     
@@ -26,7 +26,7 @@ struct HRtestview: View {
                 .resizable()
                 .frame(width: 100, height: 20)
             HStack{
-                Text("\(value)")
+                Text("\(globalModel.hRValue)")
                     .fontWeight(.regular)
                     .font(.system(size: 50))
                 
@@ -43,14 +43,14 @@ struct HRtestview: View {
         
         authorizeHealthKit()
         startHeartRateQuery(quantityTypeIdentifier: .heartRate)
-        //Want AnchoredObjectQuery
         
+        //Want AnchoredObjectQuery
         let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { _, samples, error in
             
             guard let lastSample = samples?.last as? HKQuantitySample else { return }
             let hrs = Int(lastSample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute())))
             DispatchQueue.main.async {
-                value = hrs
+                globalModel.hRValue = hrs
             }
         }
         
@@ -105,7 +105,7 @@ struct HRtestview: View {
             if type == .heartRate {
                 lastHeartRate = sample.quantity.doubleValue(for: heartRateQuantity)
             }
-            self.value = Int(lastHeartRate)
+            self.globalModel.hRValue = Int(lastHeartRate)
         }
     }
 }

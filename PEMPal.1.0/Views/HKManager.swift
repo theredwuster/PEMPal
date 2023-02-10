@@ -15,7 +15,6 @@ struct HKManager {
 //Create the query
 //Execute the query
 //Update the view with the final result
-
     
 }
 

@@ -7,9 +7,17 @@
 
 import Foundation
 
-// OBSERVABLE OBJECT
-//struct vitalsViewModel{
-    // OBSERVED PROPERTY
-//    state var value: Int
+class GlobalModel: ObservableObject {
+    @Published var userName = ""
+    @Published var userAge = 0
+    @Published var userBMI = 0
+    @Published var hRValue = 0
+    @Published var rRValue = 0
+    @Published var bPSys = 0
+    @Published var bPDias = 0
     
+}
+
+
+//struct vitalsViewModel: View {
 //}
