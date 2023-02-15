@@ -35,6 +35,8 @@ struct HRtestview: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.red)
             }
+            
+            TestPEMStatus()
         }
         .onAppear(perform: start)
     }
@@ -113,5 +115,30 @@ struct HRtestview: View {
 struct HRtestview_Previews: PreviewProvider {
     static var previews: some View {
         HRtestview()
+    }
+}
+
+struct TestPEMStatus: View {
+    @StateObject var globalModel = GlobalModel()
+    @State var buttonLabel: String = "Low Risk"
+    var body: some View{
+        Button{
+        } label: {
+            Text (buttonLabel)
+                .frame(width: 100, height: 50, alignment: .center)
+                .fontWeight(.semibold)
+                .padding(.horizontal, 10.0)
+                .padding(.vertical, 2.0)
+                .foregroundColor(.white)
+                .background(riskColor)
+                .cornerRadius(8)
+        }
+    }
+    var riskBoolean: Bool {
+        return globalModel.hRValue > 200
+    }
+    
+    var riskColor: Color {
+        return riskBoolean ? Color.red : Color.green
     }
 }

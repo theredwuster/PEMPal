@@ -23,6 +23,7 @@ struct HomePageView: View {
             }
             
             welcomeText()
+            PEMStatus()
             lastDay()
             PEMButton()
             
@@ -54,7 +55,7 @@ struct HomePageView_Previews: PreviewProvider {
 struct welcomeText: View {
     var body: some View{
         VStack(alignment: .leading){
-            Text("Hello")
+            Text("Hello,")
                 .font(.system(size: 42, weight: .bold, design: .rounded))
             Text("User.")
                 .font(.system(size: 42, weight: .bold, design: .rounded))
@@ -64,6 +65,36 @@ struct welcomeText: View {
         .padding(.trailing, 200)
     }
 }
+
+struct PEMStatus: View {
+    @StateObject var globalModel = GlobalModel()
+    var body: some View{
+        Button{
+        } label: {
+            Text (buttonLabel)
+                .frame(width: 100, height: 50, alignment: .center)
+                .fontWeight(.semibold)
+                .padding(.horizontal, 10.0)
+                .padding(.vertical, 2.0)
+                .foregroundColor(.white)
+                .background(riskColor)
+                .cornerRadius(8)
+        }
+    }
+    var riskBoolean: Bool {
+        // will be two separate threshold values for two activity states
+        return globalModel.hRValue > 200 // 220 minus age once this is an input
+    }
+    
+    var riskColor: Color {
+        return riskBoolean ? Color.red : Color.green
+    }
+    
+    var buttonLabel: String {
+        return riskBoolean ? "High Risk" : "Low Risk"
+    }
+}
+
 
 struct lastDay: View{
     var body: some View{
