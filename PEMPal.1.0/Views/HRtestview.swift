@@ -42,7 +42,8 @@ struct HRtestview: View {
     func start() {
         
         authorizeHealthKit()
-        startHeartRateQuery(quantityTypeIdentifier: .heartRate)
+        //startHeartRateQuery(quantityTypeIdentifier: .heartRate)
+        
         
         //Want AnchoredObjectQuery
         let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { _, samples, error in
@@ -53,14 +54,7 @@ struct HRtestview: View {
                 globalModel.hRValue = hrs
             }
         }
-        
-//        let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { query, samples, error in
-//
-//            guard
-//                let lastHRSample = samples?.last as HKQuantitySample else { return }
-//
-//
-//        }
+    
         
         store.execute(sampleQuery)
         
