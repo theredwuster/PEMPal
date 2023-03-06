@@ -11,6 +11,12 @@ import HealthKit
 
 struct HomePageView: View {
     
+    private var healthStore = HKHealthStore()
+    let heartRateQuantity = HKUnit(from: "count/min")
+    let store = HKHealthStore()
+    var updateView: (() -> Void)?
+    @ObservedObject var globalModel = GlobalModel()
+    
     var body: some View {
         ScrollView{
             HStack{
@@ -50,15 +56,17 @@ struct HomePageView_Previews: PreviewProvider {
     }
 }
 
+//******************************************************************//
 
 struct welcomeText: View {
+    @ObservedObject var globalModel = GlobalModel()
+    
     var body: some View{
         VStack(alignment: .leading){
             Text("Hello")
                 .font(.system(size: 42, weight: .bold, design: .rounded))
-            Text("User.")
+            Text(globalModel.userName)
                 .font(.system(size: 42, weight: .bold, design: .rounded))
-
         }
         .padding(.top, 50)
         .padding(.trailing, 200)
@@ -148,32 +156,32 @@ struct PEM : Identifiable{
     var suggest: String
 }
 
+
 var PEMData = [
-    PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(heartRateData) bpm", suggest: "70-130\nhealthy"),
-    PEM(id: 1, title: "Respiratory Rate", image: "rr", data: "50 /min", suggest: "40 /min\nhealthy"),
-    PEM(id: 2, title: "Blood Pressure", image: "bp", data: "110/70 mmHg", suggest: "120/50 mmHg\nhealthy")
+    PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(GlobalModel().hRValue) bpm", suggest: "70-130\nhealthy"),
+    PEM(id: 1, title: "Respiratory Rate", image: "rr", data: "\(GlobalModel().rRValue) /min", suggest: "40 /min\nhealthy"),
+    PEM(id: 2, title: "Blood Pressure", image: "bp", data: "\(GlobalModel().bPSys)/\(GlobalModel().bPDias) mmHg", suggest: "120/50 mmHg\nhealthy")
     
 ]
 
-
-struct addWidget: View{
-    var body: some View{
-        HStack (spacing: 5){
-            Text("+ Add Vitals")
-                .font(.system(size: 20, weight: .semibold, design: .rounded))
-                .foregroundColor(.black)
-                .layoutPriority(1)
-                .lineLimit(2)
-                .padding()
-        }
-        .background(Color.gray.opacity(0.2))
-        .clipShape(Rectangle())
-        .cornerRadius(10)
-        .padding()
-        .padding(.leading, 170)
-        .padding(.top, 130)
-    }
-}
+//struct addWidget: View{
+//    var body: some View{
+//        HStack (spacing: 5){
+//            Text("+ Add Vitals")
+//                .font(.system(size: 20, weight: .semibold, design: .rounded))
+//                .foregroundColor(.black)
+//                .layoutPriority(1)
+//                .lineLimit(2)
+//                .padding()
+//        }
+//        .background(Color.gray.opacity(0.2))
+//        .clipShape(Rectangle())
+//        .cornerRadius(10)
+//        .padding()
+//        .padding(.leading, 170)
+//        .padding(.top, 130)
+//    }
+//}
 
 struct tabBar: View{
     var body: some View{

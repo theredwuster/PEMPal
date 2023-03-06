@@ -9,12 +9,17 @@ import Foundation
 import HealthKit
 
 
-struct HKManager {
-    
-//Create a store
-//Create the query
-//Execute the query
-//Update the view with the final result
-    
+class HealthStore {
+    //Create a store
+    //Create the query
+    //Execute the query
+    //Update the view with the final result
+    var healthStore: HKHealthStore?
+
+    init() {
+        if HKHealthStore.isHealthDataAvailable(){
+            healthStore = HKHealthStore()
+        }
+    }
 }
 
