@@ -11,20 +11,6 @@ This branch works with Xcode 14.1.0, Swift 5.7 and supports iOS 13 and above.
 The application uses the CardinalKit FHIR standard to provide a shared repository for data exchanged between different modules using the FHIR standard. You can learn more about the CardinalKit standards-based software architecture in the CardinalKit documentation.
 # Build and Run the Application
 You can build and run the application using Xcode by opening up the PEMPal.1.0.xcodeproj
-# Views
-Onboarding View
-name
-Reason why is because…xyz article correlated with long covid 
-Reason why we asked for this information 
-
-Home page–Showing heart rate etc for important
- 
-Justification for button and etc. 
-Resets to 0 on button 
-
-Help menu 
-Update profile–nomrally weight and height might change 
-
 
 # Dependencies
 Xcode  
