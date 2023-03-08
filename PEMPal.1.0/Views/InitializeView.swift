@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct InitializeView: View {
-    @State var userName = ""
-    @State var userAge = ""
-    @State var userWeight = ""
-    @State var userHeight = ""
-    @State var userGender = ""
-    @State var userCOVIDLength = 0
-    @State var userSymptomLength = 0
+    @ObservedObject var globalModel: GlobalModel
     @State private var isEditing = false
+
     
     @State var COVIDpos = "How long were you positive for COVID?"
     @State var COVIDsympt = "How long did symptoms persist after testing negative?"
@@ -43,15 +38,17 @@ struct InitializeView: View {
                     Form{
                         ScrollView{
                             Section{
-                                TextField("Full name", text: $userName)
-                                TextField("Age", text: $userAge)
+                                TextField("Name", text: $globalModel.userName)
+                                    .keyboardType(.webSearch)
+                                TextField("Age", value: $globalModel.userAge, format: .number)
                             }
                             
                             Section(header: Text("Personal Information")){
-                                TextField("Weight (kg)", text: $userWeight)
+                                TextField("Weight (kg)", value: $globalModel.userWeight, format: .number)
                                     .keyboardType(.numberPad)
-                                TextField("Height (cm)", text: $userHeight)
-                                TextField("Gender (M/F/Other)", text: $userGender)
+                                TextField("Height (cm)", value: $globalModel.userHeight, format: .number)
+                                TextField("Gender (M/F/Other)", text: $globalModel.userGender)
+                                TextField("Days since last PEM", text: $globalModel.lastPEM)
                             }
                             
                             Section(header: Text("COVID Information")){
@@ -60,7 +57,7 @@ struct InitializeView: View {
                                         COVIDpos = "<1 week"
                                     }, label: {
                                         Text("< 1 week")
-                                    })
+                                    }) 
                                     Button(action: {
                                         COVIDpos = "1-2 weeks"
                                     }, label: {
@@ -122,7 +119,10 @@ struct InitializeView: View {
                     }
                     
                     Button (action: {
-                    }){NavigationLink(destination: tabithas().navigationBarBackButtonHidden(true)) {
+                        globalModel.userCOVIDLength = COVIDpos;
+                        globalModel.userSymptomSeverity = COVIDsev;
+                        
+                    }){NavigationLink(destination: tabithas(globalModel: globalModel).navigationBarBackButtonHidden(true)) {
                         Text("Continue")
                             .frame(width: 200, height: 25, alignment: .center)
                             .fontWeight(.semibold)
@@ -140,9 +140,10 @@ struct InitializeView: View {
     }
 }
 
+
 struct InitializeView_Previews: PreviewProvider {
     static var previews: some View {
-        InitializeView()
+        InitializeView(globalModel: GlobalModel())
             
     }
 }

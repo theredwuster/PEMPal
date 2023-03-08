@@ -4,7 +4,6 @@
 //
 //  Created by Ian Hall on 1/25/23.
 //
-
 import Foundation
 import SwiftUI
 import HealthKit

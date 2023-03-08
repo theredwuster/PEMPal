@@ -9,15 +9,16 @@ import SwiftUI
 import HealthKit
 
 struct hranchoredobject: View {
+    
     private var healthStore = HKHealthStore()
+    
     let heartRateQuantity = HKUnit(from: "count/min")
     let store = HKHealthStore()
-
+    
     var updateView: (() -> Void)?
-    var myAnchor = HKQueryAnchor?
-
+    
     @StateObject var globalModel = GlobalModel()
-
+    
     // VIEW CONTROLLER //
     var body: some View {
         ScrollView{
@@ -28,7 +29,7 @@ struct hranchoredobject: View {
                 Text("\(globalModel.hRValue)")
                     .fontWeight(.regular)
                     .font(.system(size: 50))
-
+                
                 Text("BPM")
                     .font(.headline)
                     .fontWeight(.bold)
@@ -37,9 +38,9 @@ struct hranchoredobject: View {
         }
         .onAppear(perform: start)
     }
-
+    
     // Function on start
-    mutating func start() {
+    func start() {
         // Authorize HK
         authorizeHealthKit()
         
@@ -47,51 +48,45 @@ struct hranchoredobject: View {
         guard let sampleType = HKObjectType.quantityType(forIdentifier: .heartRate) else {return}
         
         // Set up anchor
-        if let anchorData = UserDefaults.standard.object(forKey: "anchor") as? Data {
-            myAnchor = NSKeyedUnarchiver.unarchiveObject(with: anchorData) as? HKQueryAnchor
-            }
+        if let anchorData = UserDefaults.standard.object(forKey: "anchor") as? Data,
+        let anchor = NSKeyedUnarchiver.unarchiveObject(with: anchorData) as? HKQueryAnchor {
+            globalModel.myAnchor = anchor
+        }
         
         // Create the query
-        let anchoredQuery = HKAnchoredObjectQuery(type: sampleType, predicate: nil, anchor: myAnchor, limit: 500) { (query, samplesOrNil, deletedObjectsOrNil, newAnchor, errorOrNil) in
+        let anchoredQuery = HKAnchoredObjectQuery(type: sampleType, predicate: nil, anchor: globalModel.myAnchor, limit: 500) {(_, samplesOrNil, _, newAnchor, _) in
             
-            guard let samples = samplesOrNil, let deletedObjects = deletedObjectsOrNil else{ return }
+            guard let samples = samplesOrNil else { return }
             
             // Format lastSample into HR format
             guard let lastSample = samples.last as? HKQuantitySample else { return }
             let hrs = Int(lastSample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute())))
             
-            guard let strongSelf = self else {return}
-            strongSelf.myAnchor = newAnchor
-            
-            if let newAnchor = newAnchor{ UserDefaults.standard.setValue(NSKeyedArchiver.archivedData(withRootObject:newAnchor), forKey: "anchor")
-            }
-            
-            for hRSample in samples{
+            DispatchQueue.main.async {
                 globalModel.hRValue = hrs
             }
             
-            for deletedhRSamples in deletedObjects{
-                return
+            if let newAnchor = newAnchor { UserDefaults.standard.setValue(NSKeyedArchiver.archivedData(withRootObject:newAnchor), forKey: "anchor")
+                globalModel.myAnchor = newAnchor
             }
             
-            DispatchQueue.main.async {
-                //Update UI
-            }
-            
-            store.execute(anchoredQuery)
-            
+            // Append and store HR in array -- samples.map {$0.quantity.doubleValue}
+            //            for hRSample in samples{
+            //                globalModel.hRValue = hrs
+            //            }
         }
+        store.execute(anchoredQuery)
+    }
         
-        func authorizeHealthKit() {
-            let healthKitTypes: Set = [
-                HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!]
+    func authorizeHealthKit() {
+        let healthKitTypes: Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!]
             healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { _, _ in }
-        }
+    }
         
-        struct hranchoredobject_Previews: PreviewProvider {
-            static var previews: some View {
-                hranchoredobject()
-            }
+    struct hranchoredobject_Previews: PreviewProvider {
+        static var previews: some View {
+            hranchoredobject()
         }
     }
 }
+

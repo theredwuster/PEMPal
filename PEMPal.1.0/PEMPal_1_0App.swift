@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import HealthKit
 
 @main
 struct PEMPal_1_0App: App {
+    
+    @ObservedObject var globalModel = GlobalModel()
+    
     var body: some Scene {
         WindowGroup {
-            HRtestview()
+            InitializeView(globalModel: globalModel)
         }
     }
 }

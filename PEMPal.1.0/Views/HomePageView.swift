@@ -10,12 +10,13 @@ import HealthKit
 
 
 struct HomePageView: View {
+    @ObservedObject var globalModel: GlobalModel
     
-    private var healthStore = HKHealthStore()
+    var healthStore = HKHealthStore()
     let heartRateQuantity = HKUnit(from: "count/min")
     let store = HKHealthStore()
     var updateView: (() -> Void)?
-    @ObservedObject var globalModel = GlobalModel()
+    
     
     var body: some View {
         ScrollView{
@@ -25,55 +26,62 @@ struct HomePageView: View {
                     .resizable(capInsets: EdgeInsets())
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, alignment: .top).padding(.trailing, 20)
-   
             }
             
-            welcomeText()
-            lastDay()
-            PEMButton()
+            // Welcome Message
+            VStack(alignment: .leading){
+                Text("Hello")
+                    .font(.system(size: 42, weight: .bold, design: .rounded))
+                Text(globalModel.userName)
+                    .font(.system(size: 42, weight: .bold, design: .rounded))
+            }
+            .padding(.top, 50)
+            .padding(.trailing, 200)
+            
+            lastDay(globalModel: globalModel)
+            PEMButton(globalModel: globalModel)
             
             Text("Today")
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                 .padding(.trailing, 300)
-
-    
-            PEMInfo(PEMData: PEMData)
+            
+            PEMInfo(globalModel: globalModel)
                 .tag(0)
-                .overlay(addWidget())
-        
+            
             Spacer()
-            
-            //tabBar()
-            
         }
     }
 }
-
+    
 
 struct HomePageView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        HomePageView()
+        HomePageView(globalModel: GlobalModel())
     }
 }
 
 //******************************************************************//
 
-struct welcomeText: View {
-    @ObservedObject var globalModel = GlobalModel()
-    
-    var body: some View{
-        VStack(alignment: .leading){
-            Text("Hello")
-                .font(.system(size: 42, weight: .bold, design: .rounded))
-            Text(globalModel.userName)
-                .font(.system(size: 42, weight: .bold, design: .rounded))
-        }
-        .padding(.top, 50)
-        .padding(.trailing, 200)
-    }
-}
+//struct welcomeText: View {
+//
+//    @ObservedObject var globalModel = GlobalModel()
+//
+//    var body: some View{
+//        VStack(alignment: .leading){
+//            Text("Hello")
+//                .font(.system(size: 42, weight: .bold, design: .rounded))
+//            Text(globalModel.userName)
+//                .font(.system(size: 42, weight: .bold, design: .rounded))
+//        }
+//        .padding(.top, 50)
+//        .padding(.trailing, 200)
+//    }
+//}
 
 struct lastDay: View{
+    @ObservedObject var globalModel: GlobalModel
+    
     var body: some View{
         HStack(spacing: 5){
             Image(systemName: "info.circle")
@@ -83,7 +91,7 @@ struct lastDay: View{
                 .foregroundColor(.black)
                 .padding()
             
-            Text("You haven't been at risk for PEM in 4 days!")
+            Text("You haven't been at risk for PEM in \(globalModel.lastPEM) days!")
                 .font(.system(size: 20, weight: .semibold, design: .rounded))
                 .foregroundColor(.black)
                 .layoutPriority(2)
@@ -98,10 +106,14 @@ struct lastDay: View{
 }
 
 struct PEMButton: View{
+    @ObservedObject var globalModel: GlobalModel
+    
     var body: some View{
-        Button{
+        Button( action: {
+            print("\(globalModel.hRValue)")
+            globalModel.lastPEM = "0"
             
-        } label: {
+        }) {
             Text ("Report PEM")
                 .frame(width: 300, height: 50, alignment: .center)
                 .fontWeight(.semibold)
@@ -116,13 +128,13 @@ struct PEMButton: View{
 
 struct PEMInfo: View {
     
-    var PEMData: [PEM]
+    @ObservedObject var globalModel: GlobalModel
     var columns = Array(repeating: GridItem(.flexible(), spacing: 5),
                         count: 2)
     
     var body: some View{
         LazyVGrid(columns: columns, spacing: 30){
-            ForEach(PEMData) { PEM in
+            ForEach(createPEMdata(globalModel: globalModel)) {PEM in
                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
                     VStack(alignment: .leading, spacing: 25){
                         Text(PEM.title)
@@ -148,6 +160,16 @@ struct PEMInfo: View {
     }
 }
 
+func createPEMdata(globalModel: GlobalModel) -> [PEM] {
+    var PEMData = [
+        PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(globalModel.hRValue) bpm", suggest: "70-130\nhealthy"),
+        PEM(id: 1, title: "Respiratory Rate", image: "rr", data: "\(globalModel.rRValue) /min", suggest: "40 /min\nhealthy"),
+        PEM(id: 2, title: "Blood Pressure", image: "bp", data: "\(globalModel.bPSys)/\(globalModel.bPDias) mmHg", suggest: "120/50 mmHg\nhealthy")
+    ]
+    
+    return PEMData
+}
+
 struct PEM : Identifiable{
     var id: Int
     var title: String
@@ -157,12 +179,8 @@ struct PEM : Identifiable{
 }
 
 
-var PEMData = [
-    PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(GlobalModel().hRValue) bpm", suggest: "70-130\nhealthy"),
-    PEM(id: 1, title: "Respiratory Rate", image: "rr", data: "\(GlobalModel().rRValue) /min", suggest: "40 /min\nhealthy"),
-    PEM(id: 2, title: "Blood Pressure", image: "bp", data: "\(GlobalModel().bPSys)/\(GlobalModel().bPDias) mmHg", suggest: "120/50 mmHg\nhealthy")
-    
-]
+
+
 
 //struct addWidget: View{
 //    var body: some View{
@@ -218,6 +236,4 @@ struct tabBar: View{
         .padding()
     }
 }
-
-// TEST
 
