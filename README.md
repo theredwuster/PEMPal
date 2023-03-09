@@ -13,7 +13,9 @@ The current application is capable of:
 The PEMPal application is an IOS application with integrations to Apple Health vitals data using [HealthKit](https://developer.apple.com/documentation/healthkit). The current version contains two main pages (Onboarding page, Home page) and two prototype pages (FAQ, Update profile page). These pages are described in more detail below.
 
 This version also has a prototype WatchOS application with a Report PEM button and a Risk description that changes on button press. Integrating an iPhone app with the watch is much more complicated than we initially thought for several reasons: the watch operates off a local HealthStore doesn't always sync data with the overarching HealthStore actively (watch and phone app might access different underlying data), the watch-phone integration requires significantly more work, and if any 3rd party hardware was used to collect non-heart rate data it would sync with the phone HealthStore rather than the watch.
+
 > Since older versions of the Apple Watch don't measure SpO2 and even the Apple Watch 8 doesn't measure blood pressure or respiratory rate (when active), focusing our build on the iOS app means the PEMPal app would be cross-compatible with third party hardware. As long as external hardware syncs with Apple Health, we could measure blood pressure or respiratory rate, sync with Apple Health and the iOS HealthStore, and run our analyses. **These third party devices (and thus more complicated vitals) would not sync to the WatchOS app/watch HealthStore**
+
 Within the scope of the class, we built out majority functionality in the iOS app and decided to retain a basic looks-like prototype for the WatchOS app.
 
 This app was built using Xcode 14.1.0, Swift 5.7 and supports iOS 13 and above.
