@@ -16,16 +16,17 @@ This version also has a prototype WatchOS application with a Report PEM button a
 
 > Since older versions of the Apple Watch don't measure SpO2 and even the Apple Watch 8 doesn't measure blood pressure or respiratory rate (when active), focusing our build on the iOS app means the PEMPal app would be cross-compatible with third party hardware. As long as external hardware syncs with Apple Health, we could measure blood pressure or respiratory rate, sync with Apple Health and the iOS HealthStore, and run our analyses. **These third party devices (and thus more complicated vitals) would not sync to the WatchOS app/watch HealthStore**
 
-Within the scope of the class, we built out majority functionality in the iOS app and decided to retain a basic looks-like prototype for the WatchOS app.
+Within the scope of the class, we built out majority functionality in the iOS app and decided to retain a basic looks-like prototype for the WatchOS app. 
+
+Variables within the application are stored within a <code>Global Model</code> Swift file, which serves as the central repository for all values we track once initialized. This includes both vitals data (heart rate, respiratory rate, blood pressure) and patient specific information (name, age, weight, days since last PEM).
 
 This app was built using Xcode 14.1.0, Swift 5.7 and supports iOS 13 and above.
 
 ## Build and Run the Application
 You can build and run the application using [Xcode](https://developer.apple.com/xcode/) by opening **PEMPal.1.0.xcodeproj**. Note that if the application is being tested on:
 
-a) An XCode simulator - remember to manually add heart rate data into the Apple Health app in the simulator
-
-b) A physical iPhone - start a workout on your connected Apple Watch, open Apple Health to make sure the watch is actively measuring heart rate data and feeding it to Apple Health. The PEMPal app make take a few seconds to update the HR value, try opening/closing the app (without ending the app process).
+1. An XCode simulator - remember to manually add heart rate data into the Apple Health app in the simulator
+2. A physical iPhone - start a workout on your connected Apple Watch, open Apple Health to make sure the watch is actively measuring heart rate data and feeding it to Apple Health. The PEMPal app make take a few seconds to update the HR value, try opening/closing the app (without ending the app process).
 
 ## Onboarding Page (Initialize View)
 The <code>Onboarding Page</code> contains
@@ -33,21 +34,33 @@ The <code>Onboarding Page</code> contains
 Reason why we collect information is because…xyz article correlated with long covid 
 Reason why we asked for this information 
 
+> **Implementation:** The 
 
 ## Home Page (Home Page View)
+The <code>Home Page View</code> contains 
 
 Home page–Showing heart rate etc for important
 Justification for button and etc. 
 Resets to 0 on button press
 
-## FAQ (Help Page)
+> **Implementation:** The 
 
+## FAQ (Help Page)
+The <code>Help Page</code> is
+
+> **Implementation:** This 
 
 ## Update Profile (Update Profile Page)
+The <code>Update Profile Page</code> allows patients to 
+
 Update profile–nomrally weight and height might change 
 
-## WatchOS Preview
+> **Implementation:** The 
 
+## WatchOS Preview
+The watchOS app 
+
+> **Implementation:** This 
 
 ## Dependencies
 Xcode  
