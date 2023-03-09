@@ -22,7 +22,9 @@ This app was built using Xcode 14.1.0, Swift 5.7 and supports iOS 13 and above.
 
 ## Build and Run the Application
 You can build and run the application using [Xcode](https://developer.apple.com/xcode/) by opening **PEMPal.1.0.xcodeproj**. Note that if the application is being tested on:
+
 a) An XCode simulator - remember to manually add heart rate data into the Apple Health app in the simulator
+
 b) A physical iPhone - start a workout on your connected Apple Watch, open Apple Health to make sure the watch is actively measuring heart rate data and feeding it to Apple Health. The PEMPal app make take a few seconds to update the HR value, try opening/closing the app (without ending the app process).
 
 ## Onboarding Page (Initialize View)
