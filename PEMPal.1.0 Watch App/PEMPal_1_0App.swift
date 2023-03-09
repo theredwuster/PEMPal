@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HealthKit
 
 @main
 struct PEMPal_1_0_Watch_AppApp: App {

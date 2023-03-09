@@ -10,20 +10,23 @@ import HealthKit
 
 class GlobalModel: ObservableObject {
     @Published var userName: String = ""
-    @Published var userAge: Int?
-    @Published var userWeight: Int?
-    @Published var userHeight: Int?
+    @Published var userAge: Int? = nil
+    @Published var userWeight: Int? = nil
+    @Published var userHeight: Int? = nil
     @Published var userGender: String = ""
     @Published var userCOVIDLength = ""
     @Published var userSymptomSeverity = ""
     @Published var lastPEM: String = ""
     
     @Published var hRValue = 0
-    @Published var rRValue = 50
+    @Published var rRValue = 12
     @Published var bPSys = 120
     @Published var bPDias = 70
     @Published var myAnchor: HKQueryAnchor?
     
+    // Benchmarks
+    @Published var hRlowerlimit = 0
+    @Published var hRupperlimit = 0
 
     //
     

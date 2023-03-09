@@ -44,6 +44,7 @@ struct HomePageView: View {
             Text("Today")
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                 .padding(.trailing, 300)
+                //.padding(.bottom, 10)
             
             PEMInfo(globalModel: globalModel)
                 .tag(0)
@@ -140,11 +141,12 @@ struct PEMInfo: View {
                         Text(PEM.title)
                             .foregroundColor(.white)
                         Text(PEM.data)
-                            .font(.title)
+                            .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .padding(.top, 10)
                         Text(PEM.suggest)
+                            .font(.subheadline)
                             .foregroundColor(.white)
                     }
                     .padding()
@@ -161,10 +163,13 @@ struct PEMInfo: View {
 }
 
 func createPEMdata(globalModel: GlobalModel) -> [PEM] {
+    var hRUpperBound: Int{(220-(globalModel.userAge ?? 0)) * 8 / 10}
+    var hRLowerBound: Int{(220-(globalModel.userAge ?? 0) * 5 / 10)}
+
     var PEMData = [
-        PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(globalModel.hRValue) bpm", suggest: "70-130\nhealthy"),
-        PEM(id: 1, title: "Respiratory Rate", image: "rr", data: "\(globalModel.rRValue) /min", suggest: "40 /min\nhealthy"),
-        PEM(id: 2, title: "Blood Pressure", image: "bp", data: "\(globalModel.bPSys)/\(globalModel.bPDias) mmHg", suggest: "120/50 mmHg\nhealthy")
+        PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(globalModel.hRValue) bpm", suggest: "\(hRLowerBound)-\(hRUpperBound) bpm\nhealthy & exercising"),
+        PEM(id: 1, title: "Respiratory Rate", image: "rr", data: "\(globalModel.rRValue) /min", suggest: "<60/min\nhealthy & exercising"),
+        PEM(id: 2, title: "Blood Pressure", image: "bp", data: "\(globalModel.bPSys)/\(globalModel.bPDias) mmHg", suggest: "<140/90 mmHg\nhealthy & exercising")
     ]
     
     return PEMData
