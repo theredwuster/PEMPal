@@ -20,6 +20,18 @@ struct HRtestview: View {
     
     //var viewModel: vitalsViewModel
     
+    var riskBoolean: Bool {
+        return globalModel.hRValue > 200
+    }
+    
+    var riskColor: Color {
+        return riskBoolean ? Color.red : Color.green
+    }
+    
+    var buttonLabel: String {
+        return riskBoolean ? "High Risk" : "Low Risk"
+    }
+    
     var body: some View {
         ScrollView{
             Image("logo")
@@ -36,11 +48,21 @@ struct HRtestview: View {
                     .foregroundColor(Color.red)
             }
             
-            TestPEMStatus()
+            Button{
+            } label: {
+                Text (buttonLabel)
+                    .frame(width: 100, height: 50, alignment: .center)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 10.0)
+                    .padding(.vertical, 2.0)
+                    .foregroundColor(.white)
+                    .background(riskColor)
+                    .cornerRadius(8)
+            }
         }
         .onAppear(perform: start)
     }
-
+     
     func start() {
         
         authorizeHealthKit()
@@ -112,33 +134,105 @@ struct HRtestview: View {
     }
 }
 
+//struct TestPEMStatus: View {
+//    private var healthStore = HKHealthStore()
+//    let heartRateQuantity = HKUnit(from: "count/min")
+//
+//    let store = HKHealthStore()
+//
+//    var updateView: (() -> Void)?
+//
+//    @StateObject var globalModel = GlobalModel()
+//
+//    var riskBoolean: Bool {
+//        return globalModel.hRValue > 200
+//    }
+//
+//    var riskColor: Color {
+//        return riskBoolean ? Color.red : Color.green
+//    }
+//
+//    var buttonLabel: String {
+//        return riskBoolean ? "High Risk" : "Low Risk"
+//    }
+//
+//    var body: some View{
+//        Button{
+//        } label: {
+//            Text (buttonLabel)
+//                .frame(width: 100, height: 50, alignment: .center)
+//                .fontWeight(.semibold)
+//                .padding(.horizontal, 10.0)
+//                .padding(.vertical, 2.0)
+//                .foregroundColor(.white)
+//                .background(riskColor)
+//                .cornerRadius(8)
+//        }
+//    }
+//
+//    func start() {
+//
+//        authorizeHealthKit()
+//        startHeartRateQuery(quantityTypeIdentifier: .heartRate)
+//
+//        //Want AnchoredObjectQuery
+//        let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { _, samples, error in
+//
+//            guard let lastSample = samples?.last as? HKQuantitySample else { return }
+//            let hrs = Int(lastSample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute())))
+//            DispatchQueue.main.async {
+//                globalModel.hRValue = hrs
+//            }
+//        }
+//        store.execute(sampleQuery)
+//    }
+//
+//    func authorizeHealthKit() {
+//        let healthKitTypes: Set = [
+//        HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!]
+//        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { _, _ in }
+//    }
+//
+//    private func startHeartRateQuery(quantityTypeIdentifier: HKQuantityTypeIdentifier) {
+//
+//        // 1
+//        let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
+//        // 2
+//        let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void = {
+//            query, samples, deletedObjects, queryAnchor, error in
+//
+//        // 3
+//        guard let samples = samples as? [HKQuantitySample] else {
+//            return
+//        }
+//
+//        self.process(samples, type: quantityTypeIdentifier)
+//
+//        }
+//
+//        // 4
+//        let query = HKAnchoredObjectQuery(type: HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier)!, predicate: devicePredicate, anchor: nil, limit: HKObjectQueryNoLimit, resultsHandler: updateHandler)
+//
+//        query.updateHandler = updateHandler
+//
+//        // 5
+//        healthStore.execute(query)
+//    }
+//
+//    private func process(_ samples: [HKQuantitySample], type: HKQuantityTypeIdentifier) {
+//        var lastHeartRate = 0.0
+//
+//        for sample in samples {
+//            if type == .heartRate {
+//                lastHeartRate = sample.quantity.doubleValue(for: heartRateQuantity)
+//            }
+//            self.globalModel.hRValue = Int(lastHeartRate)
+//        }
+//    }
+//}
+
 struct HRtestview_Previews: PreviewProvider {
     static var previews: some View {
         HRtestview()
-    }
-}
-
-struct TestPEMStatus: View {
-    @StateObject var globalModel = GlobalModel()
-    @State var buttonLabel: String = "Low Risk"
-    var body: some View{
-        Button{
-        } label: {
-            Text (buttonLabel)
-                .frame(width: 100, height: 50, alignment: .center)
-                .fontWeight(.semibold)
-                .padding(.horizontal, 10.0)
-                .padding(.vertical, 2.0)
-                .foregroundColor(.white)
-                .background(riskColor)
-                .cornerRadius(8)
-        }
-    }
-    var riskBoolean: Bool {
-        return globalModel.hRValue > 200
-    }
-    
-    var riskColor: Color {
-        return riskBoolean ? Color.red : Color.green
     }
 }

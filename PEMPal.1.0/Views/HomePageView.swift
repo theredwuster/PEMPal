@@ -67,7 +67,29 @@ struct welcomeText: View {
 }
 
 struct PEMStatus: View {
+    // might need to re-scope Health Kit code to HomePageView struct instead of here in order to enable access for other vital struct boxes in PEM Info
+    
+    private var healthStore = HKHealthStore()
+    let heartRateQuantity = HKUnit(from: "count/min")
+    
+    let store = HKHealthStore()
+        
+    var updateView: (() -> Void)?
+    
     @StateObject var globalModel = GlobalModel()
+    
+    var riskBoolean: Bool {
+        return globalModel.hRValue > 200
+    }
+    
+    var riskColor: Color {
+        return riskBoolean ? Color.red : Color.green
+    }
+    
+    var buttonLabel: String {
+        return riskBoolean ? "High Risk" : "Low Risk"
+    }
+    
     var body: some View{
         Button{
         } label: {
@@ -80,19 +102,77 @@ struct PEMStatus: View {
                 .background(riskColor)
                 .cornerRadius(8)
         }
+        .onAppear(perform: start)
     }
-    var riskBoolean: Bool {
-        // will be two separate threshold values for two activity states
-        return globalModel.hRValue > 200 // 220 minus age once this is an input
+    func start() {
+        
+        authorizeHealthKit()
+        startHeartRateQuery(quantityTypeIdentifier: .heartRate)
+        
+        //Want AnchoredObjectQuery
+        let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { _, samples, error in
+            
+            guard let lastSample = samples?.last as? HKQuantitySample else { return }
+            let hrs = Int(lastSample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute())))
+            DispatchQueue.main.async {
+                globalModel.hRValue = hrs
+            }
+        }
+        
+//        let sampleQuery = HKSampleQuery(sampleType: HKQuantityType(.heartRate), predicate: nil, limit: 500, sortDescriptors: nil) { query, samples, error in
+//
+//            guard
+//                let lastHRSample = samples?.last as HKQuantitySample else { return }
+//
+//
+//        }
+        
+        store.execute(sampleQuery)
+        
+    }
+    func authorizeHealthKit() {
+        let healthKitTypes: Set = [
+        HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!]
+        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { _, _ in }
+    }
+
+    private func startHeartRateQuery(quantityTypeIdentifier: HKQuantityTypeIdentifier) {
+        
+        // 1
+        let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
+        // 2
+        let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void = {
+            query, samples, deletedObjects, queryAnchor, error in
+            
+        // 3
+        guard let samples = samples as? [HKQuantitySample] else {
+            return
+        }
+            
+        self.process(samples, type: quantityTypeIdentifier)
+
+        }
+        
+        // 4
+        let query = HKAnchoredObjectQuery(type: HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier)!, predicate: devicePredicate, anchor: nil, limit: HKObjectQueryNoLimit, resultsHandler: updateHandler)
+        
+        query.updateHandler = updateHandler
+        
+        // 5
+        healthStore.execute(query)
     }
     
-    var riskColor: Color {
-        return riskBoolean ? Color.red : Color.green
+    private func process(_ samples: [HKQuantitySample], type: HKQuantityTypeIdentifier) {
+        var lastHeartRate = 0.0
+        
+        for sample in samples {
+            if type == .heartRate {
+                lastHeartRate = sample.quantity.doubleValue(for: heartRateQuantity)
+            }
+            self.globalModel.hRValue = Int(lastHeartRate)
+        }
     }
     
-    var buttonLabel: String {
-        return riskBoolean ? "High Risk" : "Low Risk"
-    }
 }
 
 
