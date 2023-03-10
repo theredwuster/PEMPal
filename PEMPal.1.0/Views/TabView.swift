@@ -25,7 +25,7 @@ struct tabithas: View {
                     Image(systemName: "questionmark.circle")
                         .font(.largeTitle)
                 }
-            UpdateProfile()
+            UpdateProfile(globalModel: globalModel)
                 .tabItem(){
                     Image(systemName: "mail")
                         .font(.largeTitle)

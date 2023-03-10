@@ -13,6 +13,7 @@ struct logo: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 320, alignment: .topLeading)
+        Text("This is where an FAQ would be")
     }
 }
 

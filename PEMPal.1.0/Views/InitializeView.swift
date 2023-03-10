@@ -47,6 +47,7 @@ struct InitializeView: View {
                                 TextField("Weight (kg)", value: $globalModel.userWeight, format: .number)
                                     .keyboardType(.numberPad)
                                 TextField("Height (cm)", value: $globalModel.userHeight, format: .number)
+                                    .keyboardType(.numberPad)
                                 TextField("Gender (M/F/Other)", text: $globalModel.userGender)
                                 TextField("Days since last PEM", text: $globalModel.lastPEM)
                             }

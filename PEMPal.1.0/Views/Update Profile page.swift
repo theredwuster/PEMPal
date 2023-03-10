@@ -9,14 +9,7 @@ import Foundation
 import SwiftUI
 
 struct UpdateProfile: View {
-    @State var userName =  ""
-    @State var userAge = ""
-    @State var userWeight = ""
-    @State var userHeight = ""
-    @State var userGender = ""
-    @State var userCOVIDLength = 0
-    @State var userSymptomLength = 0
-
+    @ObservedObject var globalModel: GlobalModel
 
     var body: some View {
         VStack(spacing: 30){
@@ -39,12 +32,13 @@ struct UpdateProfile: View {
                 }.padding(.trailing, 30)
                 
                 VStack{
-                    TextField("Age", text: $userAge)
+                    TextField("Age", value: $globalModel.userAge, format: .number)
                         .keyboardType(.numberPad)
-                    TextField("Weight (kg)", text: $userWeight)
+                    TextField("Weight (kg)", value: $globalModel.userWeight, format: .number)
                         .keyboardType(.numberPad)
-                    TextField("Height (cm)", text: $userHeight)
-                    TextField("Gender (M/F/Other)", text: $userGender)
+                    TextField("Height (cm)", value: $globalModel.userHeight, format: .number)
+                        .keyboardType(.numberPad)
+                    TextField("Gender (M/F/Other)", text: $globalModel.userGender)
                 }
             }
             Button("Save"){}
@@ -63,7 +57,7 @@ struct UpdateProfile: View {
     }
 struct profile_Preview: PreviewProvider {
     static var previews: some View {
-        UpdateProfile()
+        UpdateProfile(globalModel: GlobalModel())
     }
     
 }
