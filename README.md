@@ -37,8 +37,12 @@ Reason why we asked for this information
 > **Implementation:** The 
 
 ## Home Page (Home Page View)
-The <code>Home Page View</code> contains 
+The <code>Home Page View</code> contains:
 
+<code>Report Pem Button</code> designed to enable patients to log the occurrence of a PEM episode. This was added to the homepage for ease of access and will likely be essential later to help the model integrated into the app recognize and appropriately adjust fatigue threshold levels in accordance with the patient’s changing physical state. Pressing this button also resets the days since last PEM status to 0  
+
+<code>A navigation bar</code> created with interactive icon buttons (copied over from the Basic Figma Icon Library) that represent the home, history, help and menu pages. This feature is to allow for easy navigation between the different pages, and was added to the bottom of every main page.
+  
 Home page–Showing heart rate etc for important
 Justification for button and etc. 
 Resets to 0 on button press
@@ -46,7 +50,7 @@ Resets to 0 on button press
 > **Implementation:** The 
 
 ## FAQ (Help Page)
-The <code>Help Page</code> is
+The <code>Help Page</code> is set up with options to report a problem with the app, information on privacy and security and an FAQ section/guide to using the PEM Pal app. None of these are currently clickable links but will be in the future.
 
 > **Implementation:** This 
 
