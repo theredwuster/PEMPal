@@ -58,19 +58,19 @@ A <code>navigation bar</code> created with icon buttons (copied over from the Ba
 ## FAQ (Help Page)
 The <code>Help Page</code> is set up with options to report a problem with the app, information on privacy and security and an FAQ section/guide to using the PEM Pal app. None of these are currently clickable links but will be in the future.
 
-> **Implementation:** This page consists of 
+> **Implementation:** This page consists of various headings and associated buttons with nested <code>NavigationLink</code> to different pages. In this version, these pages have not been built out and currently all lead to a logo page but may redirect to the appropriate views (report a problem, FAQ, terms and conditions) in the future.
 
 ## Update Profile (Update Profile Page)
 The <code>Update Profile Page</code> allows patients to 
 
-Update profile–nomrally weight and height might change 
+Update profile–normally weight and height might change 
 
-> **Implementation:** The 
+> **Implementation:** The <code>Update Profile</code> view functions very similarly to the onboarding view, whereby patient specific information is displayed in text fields and values are pulled from <code>Global Model</code>. Any changes made in the corresponding text field also modifies the source value stored in <code>Global Model</code>.
 
 ## WatchOS Preview
-The watchOS app 
+The watch app currently exists as a minimally functional looks-like prototype. As mentioned above, the watch and iPhone stores health information in separate HealthStores locally and it isn't clear when these two sync under normal non-workout conditions. It was also much more difficult than expected to build a connection between a watchOS app and an iOS app. As a result, the current watch app doesn't pull live heart rate information but simply displays a placeholder value (0), with a risk estimator underneath that simply switches from "Low" to "High" risk when the button is pressed.
 
-> **Implementation:** This 
+> **Implementation:** The watch app consists of text wrapped in a ScrollView, with a button that modifies the displayed risk string when pressed.
 
 ## Dependencies
 Xcode  
@@ -91,12 +91,11 @@ Youngju Kim – youngju2001@gmail.com
 1.0 - Initial Release of application tracking only heart rate measurements using the HealthKit AnchoredObjectQuery. Current deployment targets are for WatchOS 9.1 and iOS 16.2.
 
 # Acknowledgments
-Huge thanks to Paul Schmiedmayer, Oliver Aalami, and the [Stanford Biodesign Digital Health Group (BDHG)](https://biodesign.stanford.edu/programs/stanford-courses/biodesign-for-digital-health.html) teaching staff for their help and guidance throughout the course. This course also draws inspiration from the [Stanford BDHG Cardinal Kit Template](https://github.com/StanfordBDHG/CardinalKitTemplateApplication/tree/main/TemplateApplication) although the existing application and all associated functionality is built from scratch.
+Huge thanks to Paul Schmiedmayer, Oliver Aalami, and the [Stanford Biodesign Digital Health Group (BDHG)](https://biodesign.stanford.edu/programs/stanford-courses/biodesign-for-digital-health.html) teaching staff for their help and guidance throughout the course. This app draws inspiration from the [Stanford BDHG Cardinal Kit Template](https://github.com/StanfordBDHG/CardinalKitTemplateApplication/tree/main/TemplateApplication) although the existing version and all associated functionality is built from scratch.
 
 # References
 1. Mackay, A. Front. Neurol. 2021 Aug; 12: 701419. [PubMed](https://pubmed.ncbi.nlm.nih.gov/34408721/)
 2. Kedor, et al. Nature Comm. 2022 Aug; 13: 5104. [Nature](https://www.nature.com/articles/s41467-022-32507-6)
 3. 
 4. 
-5. 
 
