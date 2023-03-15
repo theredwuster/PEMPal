@@ -8,6 +8,7 @@ The current idea centers around a wearable device to help patients track daily a
 <img width="565" alt="Screenshot 2023-03-12 at 9 25 41 PM" src="https://user-images.githubusercontent.com/61076879/224608099-6dcbad32-ed89-4d8e-9aad-8ebeef27ac76.png">
 
 The current application is capable of:
+
 **1.** storing individual patient information, 
 > **Relevant Files**: Views -> InitializeView.swift, Update Profile Page.swift; Data -> globalModel.swift
 
