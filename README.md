@@ -39,14 +39,14 @@ Different queries and views should communicate with <code>Global Model</code>, w
 <code>Global Model</code> is also where we initialize HK authorization (user gives consent to access vitals information) and run our <code>HKAnchoredObjectQuery</code>. The <code>AnchoredObjectQuery</code> is distinct in that it returns an anchor value such that subsequent queries only retrieve data added *after* the anchor. In other words, this query allows us to continuously update and query from HealthStore in the background as opposed to running a completely new query every time. Our query sets an anchor, retrieves the latest heart rate value from HealthStore and formats it, updates the anchor, and stores the value in <code>Global Model</code>. An update handler continuously runs this query in the background.
 
 ## Onboarding Page (Initialize View)
-The <code>Onboarding Page</code> contains a place where patients can enter their name and self-report physiological characteristics such as weight, height, age, activity level, COVID history, whether they were hospitalized due to COVID, severity, length of symptoms. These charactersitics are important based on the papers cited in the references for important factors whether a patient risks PEM episodes.Furthermore, this information would allow us to calibrate our predictive model to each individual patient.
+The <code>Onboarding Page</code> contains a place where patients can enter their name and self-report physiological characteristics such as weight, height, age, activity level, COVID history, whether they were hospitalized due to COVID, severity, length of symptoms. These charactersitics are important based on the papers cited in the references for important factors whether a patient risks PEM episodes. Further, this information would allow us to calibrate our predictive model to each individual patient.
 
 <img width="361" alt="Screenshot 2023-03-08 at 3 56 33 PM" src="https://user-images.githubusercontent.com/123029959/224572716-08a8993b-c5d2-4187-9b0b-7a284a780067.png">
 
 > **Implementation:** The <code>Onboarding Page</code> is enclosed within a <code>Navigation Stack</code> comprising of various text fields nested within a form. These fields receive user text-based input and store the results in <code>Global Model</code>, as mentioned above. Dropdown options are built using <code>Menu</code> blocks and the Continue button is a <code>Navigation Link</code> that directs to the home page. The back button is purposefully removed here since we don't want users to be able to navigate back to the Onboarding Page once they've submitted their information.
 
 ## Home Page (Home Page View)
-The <code>Home Page View</code> is meant to function as a quick, simple snapshot of the patient's current health and PEM risk assessment. The Home Page provides summary vitals data, displays PEM status, and holds the Report PEM button since Homepage is the most accessible, default view.
+The <code>Home Page View</code> is meant to function as a quick, simple snapshot of the patient's current health and PEM risk assessment. The Home Page provides summary vitals data, displays PEM status, and holds the Report PEM button. Generally, highly rated digital health apps incorporate automatic reminders and alerts (eg. for ingestion of medicine or upcoming medical appointments)<sup>3</sup>. General usability dictates there should also be a clear and accessible view of summary vitals and current PEM risk, since these are the features most relevant and frequently accessed by patients; as such, these are captured via the <code>Home Page View</code>.
 
 The <code>Home Page View</code> contains:  
 
@@ -70,7 +70,7 @@ The <code>Help Page</code> is set up with options to report a problem with the a
 > **Implementation:** This page consists of various headings and associated buttons with nested <code>NavigationLink</code> to different pages. In this version, these pages have not been built out and currently all lead to a logo page but may redirect to the appropriate views (report a problem, FAQ, terms and conditions) in the future.
 
 ## Update Profile (Update Profile Page)
-The <code>Update Profile Page</code> allows patients to update their metrics to after their inital entries. This could be useful if patients have a change in weight, height, or another metric. This page is important to allow any model to remain accurate with its data input.
+The <code>Update Profile Page</code> allows patients to update their metrics to after their inital entry via the onboarding workflow. This could be useful if patients have a drastic change in weight, height, or any other relevant metric. This page is important because, as previously mentioned under the Onboarding flow, a good predictive model should be capable of receiving patient-specific inputs and calibrating *different* risk thresholds for different individuals. As above, our basic prototype heart rate range under exercise is already calibrated based on age; the ideal end state of this app would calibrate and adjust PEM risk thresholds based on a multitude of individual features (perhaps pulled from an EMR).
 
 <img width="357" alt="Screenshot 2023-03-08 at 3 57 40 PM" src="https://user-images.githubusercontent.com/123029959/224572695-1857a00a-19f5-444d-b254-df660ab5cdf0.png">
 
@@ -108,5 +108,6 @@ Huge thanks to Paul Schmiedmayer, Oliver Aalami, and the [Stanford Biodesign Dig
 1. Mackay, A. Front. Neurol. 2021 Aug; 12: 701419. [PubMed](https://pubmed.ncbi.nlm.nih.gov/34408721/)
 2. Kedor, et al. Nature Comm. 2022 Aug; 13: 5104. [Nature](https://www.nature.com/articles/s41467-022-32507-6)
 3. Subramanian, A. et al.  Nat Med. 2022 Jul; 28: 1706–1714 [Nature](https://doi.org/10.1038/s41591-022-01909-w)
-4. 
+4. Mendiola
+5. 
 
