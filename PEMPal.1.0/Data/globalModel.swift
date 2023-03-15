@@ -1,5 +1,5 @@
 //
-//  VitalsViewModel.swift
+//  globalModel.swift
 //  PEMPal.1.0
 //
 //  Created by Tim Wu on 2/7/23.
