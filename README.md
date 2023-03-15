@@ -110,7 +110,7 @@ Huge thanks to Paul Schmiedmayer, Oliver Aalami, and the [Stanford Biodesign Dig
 2. Kedor, et al. Nature Comm. 2022 Aug; 13: 5104. [Nature](https://www.nature.com/articles/s41467-022-32507-6)
 3. Subramanian, A. et al.  Nat Med. 2022 Jul; 28: 1706–1714. [Nature](https://doi.org/10.1038/s41591-022-01909-w)
 4. Mendiola M et al. JMIR mHealth and uHealth. 2015 Apr; 3(2): e(40). [PubMed](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4446515/)
-5. Wichum F et al. Current Directions in Biomedical Engineering; 2021: 7 [De Gruyter](https://www.degruyter.com/document/doi/10.1515/cdbme-2021-2094/htmlf)
-6. Biswas M, et al.  PLOS ONE. 2021 DEC, 16 [PLOS ONE](https://doi.org/10.1371/journal.pone.0258050)
-7. CDC–“Target Heart Rate and Estimated Maximum Heart Rate” [CDC](https://www.cdc.gov/physicalactivity/basics/measuring/heartrate.htm#:~:text=You%20can%20estimate%20your%20maximum,beats%20per%20minute%20(bpm))
+5. Wichum F et al. Current Directions in Biomedical Engineering. 2021 Oct; 7(2): 371-374. [De Gruyter](https://www.degruyter.com/document/doi/10.1515/cdbme-2021-2094/html)
+6. Biswas M, et al. PLOS ONE. 2021 Dec; 16(12): e0258050. [PLOS ONE](https://doi.org/10.1371/journal.pone.0258050)
+7. CDC. "Target Heart Rate" 2023. [CDC](https://www.cdc.gov/physicalactivity/basics/measuring/heartrate.htm#:~:text=You%20can%20estimate%20your%20maximum,beats%20per%20minute%20(bpm))
 
