@@ -51,7 +51,7 @@ The <code>Home Page View</code> is meant to function as a quick, simple snapshot
 
 The <code>Home Page View</code> contains:  
 
-A <code>Heart Rate Display</code> designed to display updated heart rate vitals from the heart rate query that updates through the <code>AnchoredObjectQuery</code> for patients to see and monitor. The <code>Heart Rate Display</code> also contains information about what a healthy range. Our heart rate range is based upon the CDC’s estimate for a heart rate with moderate-intensity physical activity and has the upper bound of this range being 220 minus patients age multiplied by .64 and the lower bound of this range being 220 minus the patients multiplied by .76. 
+A <code>Heart Rate Display</code> designed to display updated heart rate vitals from the heart rate query that updates through the <code>AnchoredObjectQuery</code> for patients to see and monitor. The <code>Heart Rate Display</code> also contains information about what a healthy range. Our heart rate range is based upon the CDC’s estimate for a heart rate with moderate-intensity physical activity and has the lower bound of this range being 220 minus patients age multiplied by .64 and the upper bound of this range being 220 minus the patients multiplied by .76. 
 
 A <code>Blood Pressure Display</code> and A <code>Respiratory Rate Display</code> that currently contains dummy values within the regular range for humans to build upon for future models of our applications.
 
