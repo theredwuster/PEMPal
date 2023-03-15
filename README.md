@@ -8,13 +8,13 @@ The current idea centers around a wearable device to help patients track daily a
 <img width="565" alt="Screenshot 2023-03-12 at 9 25 41 PM" src="https://user-images.githubusercontent.com/61076879/224608099-6dcbad32-ed89-4d8e-9aad-8ebeef27ac76.png">
 
 The current application is capable of:
-1. storing individual patient information, 
+**1.** storing individual patient information, 
 > **Relevant Files**: Views -> InitializeView.swift, Update Profile Page.swift; Data -> globalModel.swift
-2. querying for real time heart rate data in Apple Health,
+**2.** querying for real time heart rate data in Apple Health,
 > **Relevant Files**: Data -> globalModel.swift
-3. changing an internal flag when patient self-reports PEM using the Report PEM button, and
+**3.** changing an internal flag when patient self-reports PEM using the Report PEM button, and
 > **Relevant Files**: Data -> globalModel.swift; Views -> HomePageView.swift
-4. updating home page UI to reflect the most recent PEM episode
+**4.** updating home page UI to reflect the most recent PEM episode
 > **Relevant Files**: Views -> HomePageView.swift
 
 ## Application Structure
