@@ -10,21 +10,27 @@ The current idea centers around a wearable device to help patients track daily a
 The current application is capable of:
 
 **1.** storing individual patient information, 
-> **Relevant Files**: Views -> InitializeView.swift, Update Profile Page.swift; Data -> globalModel.swift
+  *Relevant Files*: Data -> globalModel.swift; Views -> InitializeView.swift, Update Profile Page.swift
 
 **2.** querying for real time heart rate data in Apple Health,
-> **Relevant Files**: Data -> globalModel.swift
+  *Relevant Files*: Data -> globalModel.swift
 
 **3.** changing an internal flag when patient self-reports PEM using the Report PEM button, and
-> **Relevant Files**: Data -> globalModel.swift; Views -> HomePageView.swift
+  *Relevant Files*: Data -> globalModel.swift; Views -> HomePageView.swift
 
 **4.** updating home page UI to reflect the most recent PEM episode
-> **Relevant Files**: Views -> HomePageView.swift
+  *Relevant Files*: Views -> HomePageView.swift
 
 ## Application Structure
 The PEMPal application is an IOS application with integrations to Apple Health vitals data using [HealthKit](https://developer.apple.com/documentation/healthkit) (HK). The current version contains two main pages (Onboarding page, Home page) and two prototype pages (FAQ, Update profile page). These pages are described in more detail below.
 
-This version also has a prototype WatchOS application with a Report PEM button and a Risk description that changes on button press. Integrating an iPhone app with the watch is much more complicated than we initially thought for several reasons: the watch operates off a local HealthStore doesn't always sync data with the overarching HealthStore actively (watch and phone app might access different underlying data), the watch-phone integration requires significantly more work, and if any 3rd party hardware was used to collect non-heart rate data it would sync with the phone HealthStore rather than the watch. As a result, since the Apple Watch Series 5 we tested with doesn't measure SpO2, BP, or RR, the current version of the app functions strictly off heart rate.
+This version also has a prototype WatchOS application with a Report PEM button and a Risk description that changes on button press. Integrating an iPhone app with the watch is much more complicated than we initially thought for several reasons: 
+
+1. the watch operates off a local HealthStore doesn't always sync data with the overarching HealthStore actively (watch and phone app might access different underlying data), 
+2. the watch-phone integration requires significantly more work, and 
+3. if any 3rd party hardware was used to collect non-heart rate data it would sync with the phone HealthStore rather than the watch. 
+
+As a result, and since the Apple Watch Series 5 we tested with doesn't measure SpO2, BP, or RR, the current prototype of the app strictly works an iOS app (so we can rely on the phone HealthStore as the source of truth) and heart rate (the main vital measured by the Apple Watch). A hacky workaround we've devised for this is to set the watch to workout mode (any workout) when we use our app; during a workout, the watch [continuously samples](https://support.apple.com/en-us/HT204666#:~:text=When%20Apple%20Watch%20measures%20your,heart%20rate%2C%20check%20your%20settings.) heart rate every ~5 seconds and immediately pushes updates to the overarching HealthStore. In this way, without building an explicit WatchOS app, we're still able to measure vitals using a watch and pull that data into our iOS app.
 
 > Since older versions of the Apple Watch don't measure SpO2 and even the Apple Watch 8 doesn't measure blood pressure or respiratory rate (when active), focusing our build on the iOS app means the PEMPal app would be cross-compatible with third party hardware. As long as external hardware syncs with Apple Health, we could measure blood pressure or respiratory rate, sync with Apple Health and the iOS HealthStore, and run our analyses. **These third party devices (and thus more complicated vitals) would not sync to the WatchOS app/watch HealthStore**
 
