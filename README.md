@@ -4,6 +4,7 @@ This repository contains the PEMPal application, built in Stanford's Bioengineer
 Patients with long COVID experience high symptom burden with no clear treatment options or pathophysiological explanation. Various triggers can lead to post-exertional malaise (PEM) and severe relapse of chronic fatigue syndrome (CFS).<sup>1,2</sup> Of note, day-to-day physiological stressors are a major contributor, which can lead to an aggravation of symptoms lasting 14h to several days.<sup>2</sup> These episodes are particularly challenging to manage because they occur with a time delay, meaning there's no immediate feedback for patients whether they're overexerting themselves *in the moment*.<sup>2</sup> 
 
 The current idea centers around a wearable device to help patients track daily activities and alert as they approach the physical exertion threshold for PEM would help a) patients manage their activity level, and b) correlate ‘fatigue’ with tangible vitals measurements – giving physicians a way to track disease progression over time.
+
 <img width="565" alt="Screenshot 2023-03-12 at 9 25 41 PM" src="https://user-images.githubusercontent.com/61076879/224608099-6dcbad32-ed89-4d8e-9aad-8ebeef27ac76.png">
 
 The current application is capable of:
@@ -50,7 +51,7 @@ The <code>Home Page View</code> is meant to function as a quick, simple snapshot
 
 The <code>Home Page View</code> contains:  
 
-A <code>Heart Rate Display</code> designed to display updated heart rate vitals from the heart rate query that updates through the <code>AnchoredObjectQuery</code> for patients to see and monitor. The <code>Heart Rate Display</code> also contains information about what is within the regular range for humans to be healthy for a patient to target with their heart rate range.
+A <code>Heart Rate Display</code> designed to display updated heart rate vitals from the heart rate query that updates through the <code>AnchoredObjectQuery</code> for patients to see and monitor. The <code>Heart Rate Display</code> also contains information about what a healthy range. Our heart rate range is based upon the CDC’s estimate for a heart rate with moderate-intensity physical activity and has the upper bound of this range being 220 minus patients age multiplied by .64 and the lower bound of this range being 220 minus the patients multiplied by .76. 
 
 A <code>Blood Pressure Display</code> and A <code>Respiratory Rate Display</code> that currently contains dummy values within the regular range for humans to build upon for future models of our applications.
 
@@ -108,6 +109,8 @@ Huge thanks to Paul Schmiedmayer, Oliver Aalami, and the [Stanford Biodesign Dig
 1. Mackay, A. Front. Neurol. 2021 Aug; 12: 701419. [PubMed](https://pubmed.ncbi.nlm.nih.gov/34408721/)
 2. Kedor, et al. Nature Comm. 2022 Aug; 13: 5104. [Nature](https://www.nature.com/articles/s41467-022-32507-6)
 3. Subramanian, A. et al.  Nat Med. 2022 Jul; 28: 1706–1714 [Nature](https://doi.org/10.1038/s41591-022-01909-w)
-4. Mendiola
-5. 
+4. Mendiola M et al. JMIR mHealth and uHealth; 2015 May; [JMIR] (https://mhealth.jmir.org)
+5. Wichum F et al. Current Directions in Biomedical Engineering; 2021: 7 [De Gruyter] (https://www.degruyter.com/document/doi/10.1515/cdbme-2021-2094/htmlf)
+6. Biswas M, et al.  PLOS ONE. 2021 DEC, 16 [PLOS ONE] (https://doi.org/10.1371/journal.pone.0258050)
+7. CDC–“Target Heart Rate and Estimated Maximum Heart Rate” [CDC] (https://www.cdc.gov/physicalactivity/basics/measuring/heartrate.htm#:~:text=You%20can%20estimate%20your%20maximum,beats%20per%20minute%20(bpm))
 
