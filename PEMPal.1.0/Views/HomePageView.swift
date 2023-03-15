@@ -164,7 +164,7 @@ struct PEMInfo: View {
 
 func createPEMdata(globalModel: GlobalModel) -> [PEM] {
     var hRUpperBound: Int{(220-(globalModel.userAge ?? 0)) * 76 / 100}
-    var hRLowerBound: Int{(220-(globalModel.userAge ?? 0) * 64 / 100)}
+    var hRLowerBound: Int{(220-(globalModel.userAge ?? 0)) * 64 / 100}
 
     var PEMData = [
         PEM(id: 0, title: "Heart Rate", image: "hr", data: "\(globalModel.hRValue) bpm", suggest: "\(hRLowerBound)-\(hRUpperBound) bpm\nhealthy & exercising"),
