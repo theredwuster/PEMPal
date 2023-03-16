@@ -12,16 +12,13 @@ The current idea centers around a wearable device to help patients track daily a
 
 The current application is capable of:
 
-**1.** storing individual patient information, 
-  i. *Relevant Files*: Data -> globalModel.swift; Views -> InitializeView.swift, Update Profile Page.swift
-
-**2.** querying for real time heart rate data in Apple Health,
-  i. *Relevant Files*: Data -> globalModel.swift
-
-**3.** changing an internal flag when patient self-reports PEM using the Report PEM button, and
-  i. *Relevant Files*: Data -> globalModel.swift; Views -> HomePageView.swift
-
-**4.** updating home page UI to reflect the most recent PEM episode
+1. storing individual patient information,
+  1. *Relevant Files*: Data -> globalModel.swift; Views -> InitializeView.swift, Update Profile Page.swift
+3. querying for real time heart rate data in Apple Health,
+  1. *Relevant Files*: Data -> globalModel.swift
+4. changing an internal flag when patient self-reports PEM using the Report PEM button, andd
+  1. *Relevant Files*: Data -> globalModel.swift; Views -> HomePageView.swift
+6. updating home page UI to reflect the most recent PEM episode
   i. *Relevant Files*: Views -> HomePageView.swift
 
 ## Application Structure
