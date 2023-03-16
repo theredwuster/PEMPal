@@ -1,7 +1,10 @@
 # PEMPal
 This repository contains the PEMPal application, built in Stanford's Bioengineering Capstone (BIOE141). 
 
-Patients with long COVID experience high symptom burden with no clear treatment options or pathophysiological explanation. Various triggers can lead to post-exertional malaise (PEM) and severe relapse of chronic fatigue syndrome (CFS).<sup>1,2</sup> Of note, day-to-day physiological stressors are a major contributor, which can lead to an aggravation of symptoms lasting 14h to several days.<sup>2</sup> These episodes are particularly challenging to manage because they occur with a time delay, meaning there's no immediate feedback for patients whether they're overexerting themselves *in the moment*.<sup>2</sup> 
+Patients with long COVID experience high symptom burden with no clear treatment options or pathophysiological explanation. The CDC estimates total cases of COVID-19 in America to be in excess of 103M, while the WHO places total confirmed cases at over 760M globally. In the US, roughly 10% of adults experience long COVID. This means ~10M patients in the US and ~76M patients globally suffer from long COVID.  
+
+According to Mantovani et al, fatigue was the most commonly reported symptom in long COVID across multiple metastudies. Various triggers can lead to post-exertional malaise (PEM) and severe relapse of chronic fatigue syndrome (CFS). Of note, day-to-day physiological stressors are a major contributor, which can lead to an aggravation of symptoms lasting 14h to several days. These episodes are particularly challenging to manage because they occur with a time delay, meaning there's no immediate feedback for patients whether they're overexerting themselves in the moment.
+Various triggers can lead to post-exertional malaise (PEM) and severe relapse of chronic fatigue syndrome (CFS).<sup>2,3</sup> Of note, day-to-day physiological stressors are a major contributor, which can lead to an aggravation of symptoms lasting 14h to several days.<sup>3</sup> These episodes are particularly challenging to manage because they occur with a time delay, meaning there's no immediate feedback for patients whether they're overexerting themselves *in the moment*.<sup>3</sup> 
 
 The current idea centers around a wearable device to help patients track daily activities and alert as they approach the physical exertion threshold for PEM would help a) patients manage their activity level, and b) correlate ‘fatigue’ with tangible vitals measurements – giving physicians a way to track disease progression over time.
 
@@ -120,11 +123,12 @@ Youngju Kim – youngju2001@gmail.com
 Huge thanks to Paul Schmiedmayer, Oliver Aalami, and the [Stanford Biodesign Digital Health Group (BDHG)](https://biodesign.stanford.edu/programs/stanford-courses/biodesign-for-digital-health.html) teaching staff for their help and guidance throughout the course. This app draws inspiration from the [Stanford BDHG Cardinal Kit Template](https://github.com/StanfordBDHG/CardinalKitTemplateApplication/tree/main/TemplateApplication) although the existing version and all associated functionality is built from scratch.
 
 # References
-1. Mackay, A. Front. Neurol. 2021 Aug; 12: 701419. [PubMed](https://pubmed.ncbi.nlm.nih.gov/34408721/)
-2. Kedor, et al. Nature Comm. 2022 Aug; 13: 5104. [Nature](https://www.nature.com/articles/s41467-022-32507-6)
-3. Subramanian, A. et al.  Nat Med. 2022 Jul; 28: 1706–1714. [Nature](https://doi.org/10.1038/s41591-022-01909-w)
-4. Mendiola M et al. JMIR mHealth and uHealth. 2015 Apr; 3(2): e(40). [PubMed](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4446515/)
-5. Wichum F et al. Current Directions in Biomedical Engineering. 2021 Oct; 7(2): 371-374. [De Gruyter](https://www.degruyter.com/document/doi/10.1515/cdbme-2021-2094/html)
-6. Biswas M, et al. PLOS ONE. 2021 Dec; 16(12): e0258050. [PLOS ONE](https://doi.org/10.1371/journal.pone.0258050)
-7. CDC. "Target Heart Rate" 2023. [CDC](https://www.cdc.gov/physicalactivity/basics/measuring/heartrate.htm#:~:text=You%20can%20estimate%20your%20maximum,beats%20per%20minute%20(bpm))
+1. Mantovani, A.  et al., 2022 Sept; 29: 1891–1900 [Nature](https://www.nature.com/articles/s41418-022-01052-6)  
+2.Mackay, A. Front. Neurol. 2021 Aug; 12: 701419. [PubMed](https://pubmed.ncbi.nlm.nih.gov/34408721/)
+3. Kedor, et al. Nature Comm. 2022 Aug; 13: 5104. [Nature](https://www.nature.com/articles/s41467-022-32507-6)
+4. Subramanian, A. et al.  Nat Med. 2022 Jul; 28: 1706–1714. [Nature](https://doi.org/10.1038/s41591-022-01909-w)
+5. Mendiola M et al. JMIR mHealth and uHealth. 2015 Apr; 3(2): e(40). [PubMed](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4446515/)
+6. Wichum F et al. Current Directions in Biomedical Engineering. 2021 Oct; 7(2): 371-374. [De Gruyter](https://www.degruyter.com/document/doi/10.1515/cdbme-2021-2094/html)
+7. Biswas M, et al. PLOS ONE. 2021 Dec; 16(12): e0258050. [PLOS ONE](https://doi.org/10.1371/journal.pone.0258050)
+8. CDC. "Target Heart Rate" 2023. [CDC](https://www.cdc.gov/physicalactivity/basics/measuring/heartrate.htm#:~:text=You%20can%20estimate%20your%20maximum,beats%20per%20minute%20(bpm))
 
