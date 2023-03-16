@@ -1,6 +1,25 @@
 # PEMPal
 This repository contains the PEMPal application, built in Stanford's Bioengineering Capstone (BIOE141). 
 
+## Table of Contents
+1. [Overview](#overview)
+2. [Application Structure](#application-structure)
+3. [Build and Run the Application](#build-and-run-the-application)
+4. [Global Model](#global-model)
+5. [Onboarding Page](#onboarding-page-(initialize-view))
+6. [Home Page](#home-page-(home-page-view))
+7. [FAQ](#faq-(help-page))
+8. [Update Profile](#update-profile-page)
+9. [WatchOS App](#watchos-preview)
+10. [Model](#model)
+11. [Dependencies](#dependencies)
+12. [Authors](#authors)
+13. [Version History](#version-history)
+14. [Acknowledgements](#acknowledgements)
+15. [References](#references)
+
+## Overview
+
 Patients with long COVID experience high symptom burden with no clear treatment options or pathophysiological explanation. The CDC estimates total cases of COVID-19 in America to be in excess of 103M, while the WHO places total confirmed cases at over 760M globally. In the US, roughly 10% of adults experience long COVID. This means ~10M patients in the US and ~76M patients globally suffer from long COVID.  
 
 According to Mantovani et al, fatigue was the most commonly reported symptom in long COVID across multiple metastudies. Various triggers can lead to post-exertional malaise (PEM) and severe relapse of chronic fatigue syndrome (CFS). Of note, day-to-day physiological stressors are a major contributor, which can lead to an aggravation of symptoms lasting 14h to several days. These episodes are particularly challenging to manage because they occur with a time delay, meaning there's no immediate feedback for patients whether they're overexerting themselves in the moment.
@@ -58,7 +77,7 @@ The <code>Onboarding Page</code> contains a place where patients can enter their
 
 <img width="361" alt="Screenshot 2023-03-08 at 3 56 33 PM" src="https://user-images.githubusercontent.com/123029959/224572716-08a8993b-c5d2-4187-9b0b-7a284a780067.png">
 
-> **Implementation:** The <code>Onboarding Page</code> is enclosed within a <code>Navigation Stack</code> comprising of various text fields nested within a form. These fields receive user text-based input and store the results in <code>Global Model</code>, as mentioned above. Dropdown options are built using <code>Menu</code> blocks and the Continue button is a <code>Navigation Link</code> that directs to the home page. The back button is purposefully removed here since we don't want users to be able to navigate back to the Onboarding Page once they've submitted their information.
+> **Implementation:** The <code>Onboarding Page</code> is enclosed within a <code>Navigation Stack</code> comprising of various text fields nested within a form. These fields receive user text-based input and store the results in [<code>Global Model</code>](#global-model), as mentioned above. Dropdown options are built using <code>Menu</code> blocks and the Continue button is a <code>Navigation Link</code> that directs to the home page. The back button is purposefully removed here since we don't want users to be able to navigate back to the Onboarding Page once they've submitted their information.
 
 ## Home Page (Home Page View)
 The <code>Home Page View</code> is meant to function as a quick, simple snapshot of the patient's current health and PEM risk assessment. The Home Page provides summary vitals data, displays PEM status, and holds the Report PEM button. Generally, highly rated digital health apps incorporate automatic reminders and alerts (eg. for ingestion of medicine or upcoming medical appointments)<sup>3</sup>. General usability dictates there should also be a clear and accessible view of summary vitals and current PEM risk, since these are the features most relevant and frequently accessed by patients; as such, these are captured via the <code>Home Page View</code>.
@@ -75,7 +94,7 @@ A <code>Navigation Bar</code> created with icon buttons (copied over from the Ba
 
 <img width="415" alt="Screenshot 2023-03-14 at 11 30 56 PM" src="https://user-images.githubusercontent.com/61076879/225225430-246d8bc2-bb0f-44d5-92bf-46bec81df3dc.png">
 
-> **Implementation:** The <code>Home Page View</code> is comprised of several internal views. The main view is fed our <code>Global Model</code> to carry over patient information from our <code>Onboarding View</code>. The page itself consists of text and different subviews nested within a <code>ScrollView</code>. Patient heart rate and previous PEM episode displays values pulled from <code>Global Model</code>. Note that while respiratory rate and blood pressure are retrieved from <code>Global Model</code>, these values are currently hard coded placeholders as this version of the app only pulls heart rate data from HealthStore (as mentioned in *Application Structure*). 
+> **Implementation:** The <code>Home Page View</code> is comprised of several internal views. The main view is fed our [<code>Global Model</code>](#global-model) to carry over patient information from our <code>Onboarding View</code>. The page itself consists of text and different subviews nested within a <code>ScrollView</code>. Patient heart rate and previous PEM episode displays values pulled from [<code>Global Model</code>](#global-model). Note that while respiratory rate and blood pressure are retrieved from [<code>Global Model</code>](#global-model), these values are currently hard coded placeholders as this version of the app only pulls heart rate data from HealthStore (as mentioned in *Application Structure*). 
 
 ## FAQ (Help Page)
 The <code>Help Page</code> is set up with options to report a problem with the app, information on privacy and security and an FAQ section/guide to using the PEM Pal app. None of these are currently clickable links but will be in the future.
@@ -89,7 +108,7 @@ The <code>Update Profile Page</code> allows patients to update their metrics to 
 
 <img width="357" alt="Screenshot 2023-03-08 at 3 57 40 PM" src="https://user-images.githubusercontent.com/123029959/224572695-1857a00a-19f5-444d-b254-df660ab5cdf0.png">
 
-> **Implementation:** The <code>Update Profile</code> view functions very similarly to the onboarding view, whereby patient specific information is displayed in text fields and values are pulled from <code>Global Model</code>. Any changes made in the corresponding text field also modifies the source value stored in <code>Global Model</code>.
+> **Implementation:** The <code>Update Profile</code> view functions very similarly to the onboarding view, whereby patient specific information is displayed in text fields and values are pulled from [<code>Global Model</code>](#global-model). Any changes made in the corresponding text field also modifies the source value stored in [<code>Global Model</code>](#global-model).
 
 ## WatchOS Preview
 The watch app currently exists as a minimally functional looks-like prototype. As mentioned above, the watch and iPhone stores health information in separate HealthStores locally and it isn't clear when these two sync under normal non-workout conditions. It was also much more difficult than expected to build a connection between a watchOS app and an iOS app. As a result, the current watch app doesn't pull live heart rate information but simply displays a placeholder value (0), with a risk estimator underneath that simply switches from "Low" to "High" risk when the button is pressed.
@@ -97,6 +116,9 @@ The watch app currently exists as a minimally functional looks-like prototype. A
 <img width="294" alt="Screenshot 2023-03-12 at 1 54 10 PM" src="https://user-images.githubusercontent.com/123029959/224573087-d9854dd3-29b9-425d-9548-ea0a89f5d36a.png">
 
 > **Implementation:** The watch app consists of text wrapped in a ScrollView, with a button that modifies the displayed risk string when pressed.
+
+## Model
+Work in progress
 
 ## Dependencies
 Xcode  
