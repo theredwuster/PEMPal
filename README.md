@@ -13,20 +13,16 @@ The current idea centers around a wearable device to help patients track daily a
 The current application is capable of:
 
 **1.** storing individual patient information, 
-
-*Relevant Files*: Data -> globalModel.swift; Views -> InitializeView.swift, Update Profile Page.swift
+i. *Relevant Files*: Data -> globalModel.swift; Views -> InitializeView.swift, Update Profile Page.swift
 
 **2.** querying for real time heart rate data in Apple Health,
-
-*Relevant Files*: Data -> globalModel.swift
+i. *Relevant Files*: Data -> globalModel.swift
 
 **3.** changing an internal flag when patient self-reports PEM using the Report PEM button, and
-
-*Relevant Files*: Data -> globalModel.swift; Views -> HomePageView.swift
+i. *Relevant Files*: Data -> globalModel.swift; Views -> HomePageView.swift
 
 **4.** updating home page UI to reflect the most recent PEM episode
-
-*Relevant Files*: Views -> HomePageView.swift
+i. *Relevant Files*: Views -> HomePageView.swift
 
 ## Application Structure
 The PEMPal application is an IOS application with integrations to Apple Health vitals data using [HealthKit](https://developer.apple.com/documentation/healthkit) (HK). The current version contains two main pages (Onboarding page, Home page) and two prototype pages (FAQ, Update profile page). These pages are described in more detail below.
