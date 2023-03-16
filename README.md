@@ -43,6 +43,8 @@ The current application is capable of:
 ## Application Structure
 The PEMPal application is an IOS application with integrations to Apple Health vitals data using [HealthKit](https://developer.apple.com/documentation/healthkit) (HK). The current version contains two main pages (Onboarding page, Home page) and two prototype pages (FAQ, Update profile page). These pages are described in more detail below.
 
+<img width="535" alt="Screenshot 2023-03-15 at 10 41 35 PM" src="https://user-images.githubusercontent.com/61076879/225525443-94122689-3203-491d-8140-135fe8ca2d43.png">
+
 This version also has a prototype WatchOS application with a Report PEM button and a Risk description that changes on button press. Integrating an iPhone app with the watch is much more complicated than we initially thought for several reasons: 
 
 1. the watch operates off a local HealthStore doesn't always sync data with the overarching HealthStore actively (watch and phone app might access different underlying data), 
