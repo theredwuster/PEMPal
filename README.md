@@ -100,7 +100,7 @@ A <code>Report Pem Button</code> designed to enable patients to log the occurren
 
 A <code>Navigation Bar</code> created with icon buttons (copied over from the Basic Figma Icon Library) that represent the home, history, help and menu pages. This feature is to allow for easy navigation between the different pages, and was added to the bottom of every main page.
 
-<img width="415" alt="Screenshot 2023-03-14 at 11 30 56 PM" src="https://user-images.githubusercontent.com/61076879/225225430-246d8bc2-bb0f-44d5-92bf-46bec81df3dc.png">
+<img width="410" alt="Screenshot 2023-03-17 at 11 35 33 AM" src="https://user-images.githubusercontent.com/61076879/225989948-74875a3e-e1f0-4752-95f0-3d68fee3570f.png">
 
 > **Implementation:** The <code>Home Page View</code> is comprised of several internal views. The main view is fed our [<code>Global Model</code>](#global-model) to carry over patient information from our <code>Onboarding View</code>. The page itself consists of text and different subviews nested within a <code>ScrollView</code>. Patient heart rate and previous PEM episode displays values pulled from [<code>Global Model</code>](#global-model). Note that while respiratory rate and blood pressure are retrieved from [<code>Global Model</code>](#global-model), these values are currently hard coded placeholders as this version of the app only pulls heart rate data from HealthStore (as mentioned in *Application Structure*). The <code>Risk Estimator</code> 
 
