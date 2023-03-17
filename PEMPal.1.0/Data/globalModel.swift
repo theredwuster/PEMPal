@@ -17,6 +17,7 @@ class GlobalModel: ObservableObject {
     @Published var userCOVIDLength = ""
     @Published var userSymptomSeverity = ""
     @Published var lastPEM: String = ""
+    @Published var ReportPEM: Bool = false
     
     @Published var hRValue = 0
     @Published var rRValue = 12
